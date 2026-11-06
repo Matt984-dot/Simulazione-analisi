@@ -1,0 +1,125 @@
+[
+ {
+  "id": 1,
+  "nota": "Scheda 4, ex. 17",
+  "tipo": "vero_falso",
+  "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in VL \\implies f \\in AC $?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso",
+  "spiegazione": "Controesempio: la funzione di Cantor-Vitali. In generale, vale il viceversa"
+ },
+
+ {
+  "id": 2,
+  "nota": "Scheda 4, ex. 17",
+  "tipo": "vero_falso",
+  "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in AC \\implies f \\in VL$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero", 
+  "spiegazione": "Posso estendere f con continuità su $[1,2]$ e sfruttare la prop. 4.6"
+ },
+
+ {
+  "id": 3,
+  "nota": "Scheda 4, ex. 17",
+  "tipo": "vero_falso",
+  "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in C^1([1,2]) \\implies f \\in VL$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero", 
+  "spiegazione": "$f \\in C^1([1,2]) \\implies Var(f,[1,2]) = \\int_{1}^{2} |f'(t)|dt \\leq M < \\infty$.(Weierstrass)"
+ },
+
+ {
+  "id": 4,
+  "nota": "Scheda 4, ex. 17",
+  "tipo": "vero_falso",
+  "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in UC \\implies f \\in AC$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "Controesempio: qualsiasi funzione che oscilla troppo, che non è $VL$ e quindi non può essere $AC$. In generale, vale il viceversa"
+ },
+
+ {
+  "id": 5,
+  "nota": "Scheda 4, ex. 18",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\int_{a}^{b} f'(t)dt \\leq f(b) - f(a)$, $\\forall 0 < a < b < 1$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "Questa disuguaglianza è valida per funzioni monotone non decrescenti (teo. 2.8 )"
+ },
+
+ {
+  "id": 6,
+  "nota": "Scheda 4, ex. 18",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $f \\in VL(]0,1[)$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "La monotonia non basta, mi serve anche che oscilli poco"
+ },
+
+ {
+  "id": 7,
+  "nota": "Scheda 4, ex. 18",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\exists F \\subset ]0,1[$ finito tale che $f \\in C^0(]0,1[ \\setminus F)$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "f è monotona, quindi ammetterà al più una discontinuità di salto. Dal teo. 2.2, l'insieme delle discontinuità di salto sarà al più numerabile, ma non necessariamente finito"
+ },
+
+ {
+  "id": 8,
+  "nota": "Scheda 4, ex. 18",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $g(x) = xf(x) \\in VL(]a,b[), \\forall 0 < a < b < 1$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero", 
+  "spiegazione": "$x$ è lip. quindi è $VL$, $f(b) \\leq f(x) \\leq f(a), \\forall x \\in ]a,b[ \\implies f$ monotona e limitata $\\implies f \\in VL$. VL è chiuso per il prodotto"
+ },
+
+ {
+  "id": 9,
+  "nota": "Scheda 4, ex. 19",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall \\alpha \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(f+g) = Var(f) + Var(g)$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "in generale vale $\\leq$ (oss. 3.5)"
+ },
+
+ {
+  "id": 10,
+  "nota": "Scheda 4, ex. 19",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall \\alpha \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(f+c) = Var(f)$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero", 
+  "spiegazione": "le costanti hanno variazione nulla + oss. 3.5"
+ },
+
+ {
+  "id": 11,
+  "nota": "Scheda 4, ex. 19",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall \\alpha \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $f$ è limitata?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero", 
+  "spiegazione": "$Var(f) < \\infty \\implies |f(x) - f(a)| \\leq Var(f) < \\infty, \\forall x \\in \\mathbb{R}$, con $a$ fissato"
+ },
+
+ {
+  "id": 12,
+  "nota": "Scheda 4, ex. 19",
+  "tipo": "vero_falso",
+  "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall \\alpha \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(-f) + Var(-g) = - Var(f) - Var(g)$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso", 
+  "spiegazione": "La variazione è una quantità non negativa"
+ }
+]
+
+
+
+
