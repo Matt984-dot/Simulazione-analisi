@@ -147,6 +147,62 @@
   "opzioni": [],
   "risposta_corretta": "400", 
   "spiegazione": "⚠️⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3.  Osservo che il periodo è $\\frac{1}{100}$, che in $f$ compie $100$ oscillazioni nell'intervallo. Calcolo l'integrale tra 0 e $\\frac{1}{100}$, moltiplico per tutti e 100 i periodi e finisco il conto"
+ },
+
+ {
+  "id": 16,
+  "nota": "Scheda 4, ex. 21",
+  "tipo": "multipla",
+  "domanda": "Stabilire quali delle seguenti funzioni $f: ]0,1[ \\to \\mathbb{R}$ sono assolutamente continue",
+  "opzioni": [
+  "$f(x) = \\frac{1}{x}$",
+  "$f(x) = \\sqrt(x)$",
+  "$f(x) = x^2 \\sin(\\frac{1}{x})$"
+],
+  "risposta_corretta": [
+"$f(x) = \\sqrt(x)$"
+], 
+  "spiegazione": "Vedere ex. 4.7"
+ },
+
+ {
+  "id": 17,
+  "nota": "Scheda 3, ex. 11",
+  "tipo": "vero_falso",
+  "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\longrightarrow f \\implies f_n \\rightharpoonup f$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero",
+  "spiegazione": "Usare Holder"
+ },
+
+ {
+  "id": 18,
+  "nota": "Scheda 3, ex. 11",
+  "tipo": "vero_falso",
+  "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\rightharpoonup f$ in $L^3$, $g_n \\rightharpoonup g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso",
+  "spiegazione": "Controesempio: $f_n = g_n = \\sin(nx)$"
+ },
+
+ {
+  "id": 19,
+  "nota": "Scheda 3, ex. 11",
+  "tipo": "vero_falso",
+  "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\rightharpoonup f$ in $L^3$, $g_n \\longrightarrow g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Vero",
+  "spiegazione": "Aggiungi e sottrai $f_n g$ e usa Holder"
+ },
+
+ {
+  "id": 20,
+  "nota": "Scheda 3, ex. 11",
+  "tipo": "vero_falso",
+  "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\longrightarrow f$ q.o. $ \\implies f_n \\rightharpoonup f$?",
+  "opzioni": ["Vero", "Falso"],
+  "risposta_corretta": "Falso",
+  "spiegazione": "Controesempio: $f_n = n \\chi_{[0,\\frac{1}{n}]}$"
  }
 ]
 
