@@ -28,9 +28,9 @@ def main():
   if not tutte_le_domande:
     return
 
-  # Inizializzazione della sessione e sorteggio di 8 domande casuali
+  # Inizializzazione della sessione e sorteggio di 10 domande casuali
   if "domande_test" not in st.session_state:
-    num_pesca = min(14, len(tutte_le_domande))
+    num_pesca = min(10, len(tutte_le_domande))
     st.session_state.domande_test = random.sample(tutte_le_domande, num_pesca)
     st.session_state.risposte_inviate = False
 
