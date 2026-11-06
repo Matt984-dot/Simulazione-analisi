@@ -22,11 +22,7 @@ def carica_domande():
 
 
 def main():
-  st.title("📐 Simulazione Test di Matematica")
-  st.write(
-      "Mettiti alla prova con i quesiti del test. Riceverai il riscontro e le"
-      " spiegazioni dettagliate."
-  )
+  st.title("Simulazione Primo Esonero")    
 
   tutte_le_domande = carica_domande()
   if not tutte_le_domande:
@@ -34,7 +30,7 @@ def main():
 
   # Inizializzazione della sessione e sorteggio di 8 domande casuali
   if "domande_test" not in st.session_state:
-    num_pesca = min(8, len(tutte_le_domande))
+    num_pesca = min(14, len(tutte_le_domande))
     st.session_state.domande_test = random.sample(tutte_le_domande, num_pesca)
     st.session_state.risposte_inviate = False
 

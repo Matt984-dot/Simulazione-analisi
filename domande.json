@@ -117,6 +117,36 @@
   "opzioni": ["Vero", "Falso"],
   "risposta_corretta": "Falso", 
   "spiegazione": "La variazione è una quantità non negativa"
+ },
+
+ {
+  "id": 13,
+  "nota": "Scheda 4, ex. 20",
+  "tipo": "aperta",
+  "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = x - x^2$",
+  "opzioni": [],
+  "risposta_corretta": "1/2", 
+  "spiegazione": "⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3. Per calcolare l'integrale spezzo $[0,1] = [0,1/2[ \\cup [1/2,1]$ (risp. $f$ crescente, decrescente)"
+ },
+
+ {
+  "id": 14,
+  "nota": "Scheda 4, ex. 20",
+  "tipo": "aperta",
+  "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(x) + e^x $",
+  "opzioni": [],
+  "risposta_corretta": "infinito", 
+  "spiegazione": "⚠️ La funzione ha infinite oscillazioni tra ]0,1["
+ },
+
+ {
+  "id": 15,
+  "nota": "Scheda 4, ex. 20",
+  "tipo": "aperta",
+  "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(200\\pi*x)$",
+  "opzioni": [],
+  "risposta_corretta": "400", 
+  "spiegazione": "⚠️⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3.  Osservo che il periodo è $\\frac{1}{100}$, che in $f$ compie $100$ oscillazioni nell'intervallo. Calcolo l'integrale tra 0 e $\\frac{1}{100}$, moltiplico per tutti e 100 i periodi e finisco il conto"
  }
 ]
 
