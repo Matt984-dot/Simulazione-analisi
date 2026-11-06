@@ -33,8 +33,8 @@ if not tutte_le_domande:
 else:
   # Inizializzazione dello stato della sessione per la simulazione
   if "domande_selezionate" not in st.session_state:
-    # Estrae casualmente fino a 8 domande (o meno se il database ne ha di meno)
-    num_pes pesca = min(8, len(tutte_le_domande))
+    # Estrae casualmente fino a 10 domande (o meno se il database ne ha di meno)
+    num_pesca = min(10, len(tutte_le_domande))
     st.session_state.domande_selezionate = random.sample(
         tutte_le_domande, num_pesca
     )
