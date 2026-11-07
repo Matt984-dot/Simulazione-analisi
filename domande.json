@@ -29,7 +29,7 @@
     ],
     "risposta_corretta": [
      "$f \\in L^1_{loc}(\\mathbb{R}) \\implies \\forall n \\in \\mathbb{N}, \\mu_n(E) = \\int_E f_n(x)dx$, dove $E$ è misurabile, è una misura di Radon",
-     "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathb{R})$"
+     "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathbb{R})$"
     ],
     "spiegazione": "$f \\in L^1_{loc} \\implies f_n$ di Radon $\\implies \\mu_n$ di Radon; dispersione di massa all'infinito"
   },
@@ -306,7 +306,7 @@
     "id": 30,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
-    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\longrightarrow f \\implies f_n \\rightharpoonup f$?",
+    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f \\implies f_n \\rightharpoonup f$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "Usare Holder"
@@ -315,7 +315,7 @@
     "id": 31,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
-    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\rightharpoonup f$ in $L^3$, $g_n \\rightharpoonup g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
+    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\rightharpoonup g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = g_n = \\sin(nx)$"
@@ -324,7 +324,7 @@
     "id": 32,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
-    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\rightharpoonup f$ in $L^3$, $g_n \\longrightarrow g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
+    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\longrightarrow g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "Aggiungi e sottrai $f_n g$ e usa Holder"
@@ -333,7 +333,7 @@
     "id": 33,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
-    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R^2}): f_n \\longrightarrow f$ q.o. $ \\implies f_n \\rightharpoonup f$?",
+    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f$ q.o. $ \\implies f_n \\rightharpoonup f$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = n \\chi_{[0,\\frac{1}{n}]}$"
