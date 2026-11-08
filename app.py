@@ -22,19 +22,15 @@ def carica_domande():
 
 
 def main():
-  st.title("📐 Simulazione Test di Matematica")
-  st.write(
-      "Mettiti alla prova con i quesiti del test. Riceverai il riscontro e le"
-      " spiegazioni dettagliate."
-  )
+  st.title("Simulazione PRimo Esonero") 
 
   tutte_le_domande = carica_domande()
   if not tutte_le_domande:
     return
 
-  # Inizializzazione della sessione e sorteggio di 10 domande casuali
+  # Inizializzazione della sessione e sorteggio di 15 domande casuali
   if "domande_test" not in st.session_state:
-    num_pesca = min(10, len(tutte_le_domande))
+    num_pesca = min(15, len(tutte_le_domande))
     st.session_state.domande_test = random.sample(tutte_le_domande, num_pesca)
     st.session_state.risposte_inviate = False
 
@@ -42,7 +38,7 @@ def main():
 
   # Se l'utente ha inviato il modulo, mostriamo i risultati e le spiegazioni
   if st.session_state.get("risposte_inviate", False):
-    st.header("📊 Risultati e Spiegazioni")
+    st.header("Risultati e Spiegazioni")
     punteggio = 0
     totale = len(domande)
 
