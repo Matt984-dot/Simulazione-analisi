@@ -354,7 +354,6 @@
     "risposta_corretta": "32",
     "spiegazione": "$u \\in AC \\implies \\int_{0}^{2} u'(x)dx = 8$. Applica la disuguaglianza e via"
   },
-
   {
     "id": 37,
     "nota": "Scheda 1, ex. 1",
@@ -364,7 +363,6 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Non è una misura perché non è $\\sigma-$additiva"
   },
-
   {
     "id": 38,
     "nota": "Scheda 1, ex. 1",
@@ -374,7 +372,6 @@
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
     "id": 39,
     "nota": "Scheda 1, ex. 1",
@@ -384,7 +381,6 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Non è una misura perché $\\mu(\\emptyset) = 1$"
   },
-
   {
     "id": 40,
     "nota": "Scheda 1, ex. 1",
@@ -394,7 +390,6 @@
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
     "id": 41,
     "nota": "Scheda 1, ex. 2",
@@ -404,7 +399,6 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Pensa ad una funzione a gradini di altezza $n$ e base $\\frac{1}{n^3}$"
   },
-
   {
     "id": 42,
     "nota": "Scheda 1, ex. 2",
@@ -414,17 +408,15 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Pensa ad una funzione con picchi negativi"
   },
-
   {
     "id": 43,
     "nota": "Scheda 1, ex. 2",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\liminf_{x \\to \\pm \\infty} |f(x)| =  0$?",
+    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\liminf_{x \\to \\pm \\infty} |f(x)| = 0$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "Si prova suppoendo per assurdo che $\\exists c \\geq 0: \\liminf_{x \\to \\pm \\infty} |f(x)| =  c$ e poi mando $c \\to \\infty$"
+    "spiegazione": "Si prova suppoendo per assurdo che $\\exists c \\geq 0: \\liminf_{x \\to \\pm \\infty} |f(x)| = c$ e poi mando $c \\to \\infty$"
   },
-
   {
     "id": 44,
     "nota": "Scheda 1, ex. 2",
@@ -434,9 +426,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
-    "id": 44,
+    "id": 45,
     "nota": "Scheda 1, ex. 3",
     "tipo": "vero_falso",
     "domanda": "$\\delta_{\\frac{1}{n}} \\longrightarrow \\delta_0$ in $\\textit{ca}(2^{\\mathbb{R}})$",
@@ -444,9 +435,8 @@
     "risposta_corretta": "Falso",
     "spiegazione": "$||\\delta_{\\frac{1}{n}} - \\delta_0||_{VT} = 2$"
   },
-
   {
-    "id": 45,
+    "id": 46,
     "nota": "Scheda 1, ex. 3",
     "tipo": "vero_falso",
     "domanda": "$(1 + \\frac{1}{n})\\delta_0 \\longrightarrow \\delta_0$ in $\\textit{ca}(2^{\\mathbb{R}})$",
@@ -454,9 +444,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
-    "id": 46,
+    "id": 47,
     "nota": "Scheda 1, ex. 3",
     "tipo": "vero_falso",
     "domanda": "$\\delta_n$ converge alla misura nulla in $\\textit{ca}(2^{\\mathbb{R}})$",
@@ -464,9 +453,8 @@
     "risposta_corretta": "Falso",
     "spiegazione": ""
   },
-
   {
-    "id": 47,
+    "id": 48,
     "nota": "Scheda 1, ex. 3",
     "tipo": "vero_falso",
     "domanda": "$\\sum_{z \\in \\mathbb{Z}} \\delta_z \\in \\textit{ca}(2^{\\mathbb{R}})$",
@@ -474,124 +462,103 @@
     "risposta_corretta": "Falso",
     "spiegazione": "$\\mu \\in \\textit{ca}(2^{\\mathbb{R}}) \\iff ||\\mu||_{VT} < \\infty$"
   },
-
   {
-    "id": 48,
+    "id": 49,
     "nota": "Scheda 1, ex. 5",
     "tipo": "aperta",
-    "domanda": "$\\mu$ misura boreliana  su $\\mathbb{R}$ definita da $\\mu(B) = \\textit{L}(B \\cap ]-1,1[), \\forall B \\subset \\mathbb{R}$. Calcolare la variazione totale di $\\mu - \\delta_0$",
-    "opzioni": "",
+    "domanda": "$\\mu$ misura boreliana su $\\mathbb{R}$ definita da $\\mu(B) = \\textit{L}(B \\cap ]-1,1[), \\forall B \\subset \\mathbb{R}$. Calcolare la variazione totale di $\\mu - \\delta_0$",
+    "opzioni": [],
     "risposta_corretta": "3",
     "spiegazione": ""
   },
-
-  {
-    "id": 49,
-    "nota": "Scheda 2, ex. 6",
-    "tipo": "vero_falso",
-    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x)e^{-|x-n|^2} \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Vero",
-    "spiegazione": "Convergenza dominata"
-  },
-
   {
     "id": 50,
     "nota": "Scheda 2, ex. 6",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x+n) \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Falso",
-    "spiegazione": "Massa che fugge all'infinito"
+    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x)e^{-|x-n|^2} \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "Convergenza dominata"
   },
-
   {
     "id": 51,
     "nota": "Scheda 2, ex. 6",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x + \\frac{1}{n}) \\longrightarrow f$ in $L^1(\\mathbb{R})$",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Vero",
-    "spiegazione": "$h = \\frac{1}{n} \\to 0$, le traslazioni sono continue"
+    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x+n) \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Massa che fugge all'infinito"
   },
-
   {
     "id": 52,
     "nota": "Scheda 2, ex. 6",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): g_n(x) = \\min \{|f(x)|, \\frac{1}{n}\} \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
-    "opzioni": ["Vero","Falso"],
+    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): f_n(x) = f(x + \\frac{1}{n}) \\longrightarrow f$ in $L^1(\\mathbb{R})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "$h = \\frac{1}{n} \\to 0$, le traslazioni sono continue"
+  },
+  {
+    "id": 53,
+    "nota": "Scheda 2, ex. 6",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall f \\in L^1(\\mathbb{R}): g_n(x) = \\min \\{|f(x)|, \\frac{1}{n}\\} \\longrightarrow 0$ in $L^1(\\mathbb{R})$",
+    "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "Convergenza dominata"
   },
-
-  {
-    "id": 53,
-    "nota": "Scheda 2, ex. 7",
-    "tipo": "vero_falso",
-    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): f_n \\longrightarrow 0$ q.o.",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Falso",
-    "spiegazione": "La convergenza in $L^p$ non implica quella quasi ovunque a meno di sottosuccessioni"
-  },
-
   {
     "id": 54,
     "nota": "Scheda 2, ex. 7",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): \\exists $ una sottosuccessione convergente a $0$ ovunque",
-    "opzioni": ["Vero","Falso"],
+    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): f_n \\longrightarrow 0$ q.o.",
+    "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "La convergenza in $L^p$ non implica quella quasi ovunque a meno di sottosuccessioni"
   },
-
   {
     "id": 55,
     "nota": "Scheda 2, ex. 7",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2)$, posto $E_n = \{x \\in \\mathbb{R}: f_n(x) \\geq 1\}, \\lambda(E_n) \\to 0$",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Vero",
-    "spiegazione": "$0 \\geq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\geq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
+    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): \\exists$ una sottosuccessione convergente a $0$ ovunque",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "La convergenza in $L^p$ non implica quella quasi ovunque a meno di sottosuccessioni"
   },
-
   {
     "id": 56,
     "nota": "Scheda 2, ex. 7",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): f_n \\longrightarrow 0$ uniformemente su $\\mathbb{R}^2$",
-    "opzioni": ["Vero","Falso"],
-    "risposta_corretta": "Falso",
-    "spiegazione": "controesempio: $f_n = \\chi_{[0,\\frac{1}{n}]}$"
+    "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2)$, posto $E_n = \\{x \\in \\mathbb{R}: f_n(x) \\geq 1\\}, \\lambda(E_n) \\to 0$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "$0 \\geq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\geq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
   },
-
   {
-    "id": 53,
+    "id": 57,
     "nota": "Scheda 2, ex. 7",
     "tipo": "vero_falso",
     "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2): f_n \\longrightarrow 0$ uniformemente su $\\mathbb{R}^2$",
-    "opzioni": ["Vero","Falso"],
+    "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "controesempio: $f_n = \\chi_{[0,\\frac{1}{n}]}$"
   },
-
   {
-    "id": 54,
+    "id": 58,
     "nota": "Scheda 2, ex. 8",
     "tipo": "multipla",
     "domanda": "Per quali $p \\in [1, + \\infty]: f_n(x) = \\frac{\\sin(x)^n}{x} \\longrightarrow 0$ in $L^p(\\mathbb{R}^n)$?",
     "opzioni": [
-"$\\forall p \\in [1, + \\infty]$",
-"$\\forall p \\in ]1, +\\infty]$",
-"$\\forall p \\in [1, +\\infty[$",
-"$\\forall p \\in ]1,+\\infty[$"
-],
+      "$\\forall p \\in [1, + \\infty]$",
+      "$\\forall p \\in ]1, +\\infty]$",
+      "$\\forall p \\in [1, +\\infty[$",
+      "$\\forall p \\in ]1,+\\infty[$"
+    ],
     "risposta_corretta": "$\\forall p \\in ]1, + \\infty]$",
     "spiegazione": "Devi studiare il comportamento di $f_n$ all'infinito"
   },
-
- {
-    "id": 55,
+  {
+    "id": 59,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f \\implies f_n \\rightharpoonup f$?",
@@ -599,9 +566,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": "Usare Hölder"
   },
-
   {
-    "id": 56,
+    "id": 60,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\rightharpoonup g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
@@ -609,9 +575,8 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = g_n = \\sin(nx)$"
   },
-
   {
-    "id": 57,
+    "id": 61,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\longrightarrow g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
@@ -619,9 +584,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": "Aggiungi e sottrai $f_n g$ e usa Hölder"
   },
-
   {
-    "id": 58,
+    "id": 62,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f$ q.o. $\\implies f_n \\rightharpoonup f$?",
@@ -629,9 +593,8 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = n \\chi_{[0,\\frac{1}{n}]}$"
   },
-
   {
-    "id": 59,
+    "id": 63,
     "nota": "Scheda 3, ex. 12",
     "tipo": "vero_falso",
     "domanda": "$\\forall f_n$ in $L^2(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^2, f_n\\chi_{B_n(0)} \\rightharpoonup f$?",
@@ -639,9 +602,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": "Ex. 11, punto 2"
   },
-
   {
-    "id": 60,
+    "id": 64,
     "nota": "Scheda 3, ex. 12",
     "tipo": "vero_falso",
     "domanda": "$\\forall f_n$ in $L^2(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^2, f_n(1 - \\chi_{B_n(0)}) \\rightharpoonup 0$?",
@@ -649,9 +611,8 @@
     "risposta_corretta": "Vero",
     "spiegazione": "Ex. 11, punto 2"
   },
-
   {
-    "id": 61,
+    "id": 65,
     "nota": "Scheda 3, ex. 12",
     "tipo": "vero_falso",
     "domanda": "$\\forall f_n$ in $L^2(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^2, |f_n| \\rightharpoonup |f|$?",
@@ -659,59 +620,53 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $\\sin(nx)$"
   },
-
   {
-    "id": 62,
+    "id": 66,
     "nota": "Scheda 3, ex. 12",
     "tipo": "vero_falso",
-    "domanda": "$\\forall f_n$ in $L^2(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^2, 3f_n + f \\rightharpoonup f?",
+    "domanda": "$\\forall f_n$ in $L^2(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^2, 3f_n + f \\rightharpoonup f$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
-    "id": 63,
+    "id": 67,
     "nota": "Scheda 3, ex. 13",
     "tipo": "vero_falso",
-    "domanda": "$ \\rho_n$ successione di  mollificatori standard  in $\\mathbb{R}^3: \\rho_n$ converge debolmente in $L^1(\\mathbb{R}^3)$?",
+    "domanda": "$\\rho_n$ successione di mollificatori standard in $\\mathbb{R}^3: \\rho_n$ converge debolmente in $L^1(\\mathbb{R}^3)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Se fosse vero dovrebbe convergere a zero, ma i mollificatori hanno norma unitaria"
   },
-
   {
-    "id": 64,
+    "id": 68,
     "nota": "Scheda 3, ex. 13",
     "tipo": "vero_falso",
-    "domanda": "$ \\rho_n$ successione di  mollificatori standard  in $\\mathbb{R}^3: \\rho_n$ è limitata in $L^2(\\mathbb{R}^3)$?",
+    "domanda": "$\\rho_n$ successione di mollificatori standard in $\\mathbb{R}^3: \\rho_n$ è limitata in $L^2(\\mathbb{R}^3)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "La norma scappa all'infinito"
   },
-
   {
-    "id": 65,
+    "id": 69,
     "nota": "Scheda 3, ex. 13",
     "tipo": "vero_falso",
-    "domanda": "$ \\rho_n$ successione di  mollificatori standard  in $\\mathbb{R}^3: \\rho_n$ è limitata in $L^1(\\mathbb{R}^3)$?",
+    "domanda": "$\\rho_n$ successione di mollificatori standard in $\\mathbb{R}^3: \\rho_n$ è limitata in $L^1(\\mathbb{R}^3)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": ""
   },
-
   {
-    "id": 66,
+    "id": 70,
     "nota": "Scheda 3, ex. 13",
     "tipo": "vero_falso",
-    "domanda": "$ \\rho_n$ successione di  mollificatori standard  in $\\mathbb{R}^3: \\rho_n \\rightharpoonup 0$ in $L^2(\\mathbb{R}^3)$?",
+    "domanda": "$\\rho_n$ successione di mollificatori standard in $\\mathbb{R}^3: \\rho_n \\rightharpoonup 0$ in $L^2(\\mathbb{R}^3)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "convergenza debole $\\implies$ limitatezza (prop. 3.8, cap. 3) ma la mia successione non è limitata"
   },
-
   {
-    "id": 67,
+    "id": 71,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
     "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in VL \\implies f \\in AC$?",
@@ -720,7 +675,7 @@
     "spiegazione": "Controesempio: la funzione di Cantor-Vitali. In generale, vale il viceversa"
   },
   {
-    "id": 68,
+    "id": 72,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
     "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in AC \\implies f \\in VL$?",
@@ -729,7 +684,7 @@
     "spiegazione": "Posso estendere $f$ con continuità su $[1,2]$ e sfruttare la prop. 4.6"
   },
   {
-    "id": 69,
+    "id": 73,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
     "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in C^1([1,2]) \\implies f \\in VL$?",
@@ -738,7 +693,7 @@
     "spiegazione": "$f \\in C^1([1,2]) \\implies \\text{Var}(f,[1,2]) = \\int_{1}^{2} |f'(t)|dt \\leq M < \\infty$ (Weierstrass)"
   },
   {
-    "id": 70,
+    "id": 74,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
     "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in UC \\implies f \\in AC$?",
@@ -747,7 +702,7 @@
     "spiegazione": "Controesempio: qualsiasi funzione che oscilla troppo, che non è $VL$ e quindi non può essere $AC$. In generale, vale il viceversa"
   },
   {
-    "id": 71,
+    "id": 75,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
     "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\int_{a}^{b} f'(t)dt \\leq f(b) - f(a)$, $\\forall 0 < a < b < 1$?",
@@ -756,7 +711,7 @@
     "spiegazione": "Questa disuguaglianza è valida per funzioni monotone non decrescenti (teo. 2.8)"
   },
   {
-    "id": 72,
+    "id": 76,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
     "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $f \\in VL(]0,1[)$?",
@@ -765,7 +720,7 @@
     "spiegazione": "La monotonia non basta, mi serve anche che oscilli poco"
   },
   {
-    "id": 73,
+    "id": 77,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
     "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\exists F \\subset ]0,1[$ finito tale che $f \\in C^0(]0,1[ \\setminus F)$?",
@@ -774,7 +729,7 @@
     "spiegazione": "$f$ è monotona, quindi ammetterà al più una discontinuità di salto. Dal teo. 2.2, l'insieme delle discontinuità di salto sarà al più numerabile, ma non necessariamente finito"
   },
   {
-    "id": 74,
+    "id": 78,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
     "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $g(x) = xf(x) \\in VL(]a,b[), \\forall 0 < a < b < 1$?",
@@ -783,7 +738,7 @@
     "spiegazione": "$x$ è lip. quindi è $VL$, $f(b) \\leq f(x) \\leq f(a), \\forall x \\in ]0,1[ \\implies f$ monotona e limitata $\\implies f \\in VL$. $VL$ è chiuso per il prodotto"
   },
   {
-    "id": 75,
+    "id": 79,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
     "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(f+g) = \\text{Var}(f) + \\text{Var}(g)$?",
@@ -792,49 +747,13 @@
     "spiegazione": "in generale vale $\\leq$ (oss. 3.5)"
   },
   {
-    "id": 76,
+    "id": 80,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
     "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(f+c) = \\text{Var}(f)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "le costanti hanno variazione nulla + oss. 3.5"
-  },
-  {
-    "id": 77,
-    "nota": "Scheda 4, ex. 19",
-    "tipo": "vero_falso",
-    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $f$ è limitata?",
-    "opzioni": ["Vero", "Falso"],
-    "risposta_corretta": "Vero",
-    "spiegazione": "$\\text{Var}(f) < \\infty \\implies |f(x) - f(a)| \\leq \\text{Var}(f) < \\infty, \\forall x \\in \\mathbb{R}$, con $a$ fissato"
-  },
-  {
-    "id": 78,
-    "nota": "Scheda 4, ex. 19",
-    "tipo": "vero_falso",
-    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(-f) + \\text{Var}(-g) = - \\text{Var}(f) - \\text{Var}(g)$?",
-    "opzioni": ["Vero", "Falso"],
-    "risposta_corretta": "Falso",
-    "spiegazione": "La variazione è una quantità non negativa"
-  },
-  {
-    "id": 79,
-    "nota": "Scheda 4, ex. 20",
-    "tipo": "aperta",
-    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = x - x^2$",
-    "opzioni": [],
-    "risposta_corretta": "1/2",
-    "spiegazione": "⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3. Per calcolare l'integrale spezzo $[0,1] = [0,1/2[ \\cup [1/2,1]$ (risp. $f$ crescente, decrescente)"
-  },
-  {
-    "id": 80,
-    "nota": "Scheda 4, ex. 20",
-    "tipo": "aperta",
-    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(\\frac{1}{x}) + e^x$",
-    "opzioni": [],
-    "risposta_corretta": "infinito",
-    "spiegazione": "⚠️ La funzione ha infinite oscillazioni tra $]0,1[$"
   },
   {
     "id": 81,
