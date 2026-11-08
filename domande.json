@@ -355,6 +355,149 @@
     "spiegazione": "$u \\in AC \\implies \\int_{0}^{2} u'(x)dx = 8$. Applica la disuguaglianza e via"
   },
 
+  {
+    "id": 37,
+    "nota": "Scheda 1, ex. 1",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall F \\in 2^{\\mathbb{R}}, \\mu(F) = \\sup F - \\inf F$ è una misura di Borel?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Non è una misura perché non è $\\sigma-$additiva"
+  },
+
+  {
+    "id": 38,
+    "nota": "Scheda 1, ex. 1",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall F \\in 2^{\\mathbb{R}}, \\mu(F) = 0$ se $F$ è numerabile, $+ \\infty$ altrimenti, è una misura di Borel?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": ""
+  },
+
+  {
+    "id": 39,
+    "nota": "Scheda 1, ex. 1",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall F \\in 2^{\\mathbb{R}}, \\mu(F) = 0$ se $x \\in F, 1$ altrimenti, è una misura di Borel?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Non è una misura perché $\\mu(\\emptyset) = 1$"
+  },
+
+  {
+    "id": 40,
+    "nota": "Scheda 1, ex. 1",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall F \\in 2^{\\mathbb{R}}, \\mu(F) = \\int_F e^x dx$ è una misura di Borel?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": ""
+  },
+
+  {
+    "id": 41,
+    "nota": "Scheda 1, ex. 2",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\lim\\limits_{x \\to \\pm \\infty} f(x) = 0$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Pensa ad una funzione a gradini di altezza $n$ e base $\\frac{1}{n^3}$"
+  },
+
+  {
+    "id": 42,
+    "nota": "Scheda 1, ex. 2",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\limsup_{x \\to \\pm \\infty} f(x) \\geq 0$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Pensa ad una funzione con picchi negativi"
+  },
+
+  {
+    "id": 43,
+    "nota": "Scheda 1, ex. 2",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\liminf_{x \\to \\pm \\infty} |f(x)| =  0$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "Si prova suppoendo per assurdo che $\\exists c \\geq 0: \\liminf_{x \\to \\pm \\infty} |f(x)| =  c$ e poi mando $c \\to \\infty$"
+  },
+
+  {
+    "id": 44,
+    "nota": "Scheda 1, ex. 2",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall f: \\mathbb{R} \\longrightarrow \\mathbb{R}$ integrabile secondo Lebesgue: $\\int |f|dx = \\int f^+ dx + \\int f^- dx$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": ""
+  },
+
+  {
+    "id": 44,
+    "nota": "Scheda 1, ex. 3",
+    "tipo": "vero_falso",
+    "domanda": "$\\delta_{\\frac{1}{n}} \\longrightarrow \\delta_0$ in $\\textit{ca}(2^{\\mathbb{R}})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "$||\\delta_{\\frac{1}{n}} - \\delta_0||_{VT} = 2$"
+  },
+
+  {
+    "id": 45,
+    "nota": "Scheda 1, ex. 3",
+    "tipo": "vero_falso",
+    "domanda": "$(1 + \\frac{1}{n})\\delta_0 \\longrightarrow \\delta_0$ in $\\textit{ca}(2^{\\mathbb{R}})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": ""
+  },
+
+  {
+    "id": 46,
+    "nota": "Scheda 1, ex. 3",
+    "tipo": "vero_falso",
+    "domanda": "$\\delta_n$ converge alla misura nulla in $\\textit{ca}(2^{\\mathbb{R}})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": ""
+  },
+
+  {
+    "id": 47,
+    "nota": "Scheda 1, ex. 3",
+    "tipo": "vero_falso",
+    "domanda": "$\\sum_{z \\in \\mathbb{Z}} \\delta_z \\in \\textit{ca}(2^{\\mathbb{R}})$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "$\\mu \\in \\textit{ca}(2^{\\mathbb{R}}) \\iff ||\\mu||_{VT} < \\infty$"
+  },
+
+  {
+    "id": 48,
+    "nota": "Scheda 1, ex. 5",
+    "tipo": "aperta",
+    "domanda": "$\\mu$ misura boreliana  su $\\mathbb{R}$ definita da $\\mu(B) = \\textit{L}(B \\cap ]-1,1[), \\forall B \\subset \\mathbb{R}$. Calcolare la variazione totale di $\\mu - \\delta_0$",
+    "opzioni": "",
+    "risposta_corretta": "3",
+    "spiegazione": ""
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
