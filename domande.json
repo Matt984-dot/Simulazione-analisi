@@ -154,114 +154,215 @@
 
   {
     "id": 14,
+    "nota": "Esercitazione casa 1",
+    "tipo": "vero_falso",
+    "domanda": "Siano $\\rho_epsilon$ i mollificatori standard e sia $f \\in L^2(\\mathbb{R}^n)$. Allora $\\rho_{epsilon}*f = -f*\\rho_{\\epsilon}$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "La convoluzione è commutativa "
+  },
+
+  {
+    "id": 15,
+    "nota": "Esercitazione casa 1",
+    "tipo": "vero_falso",
+    "domanda": "$L^2(\\mathbb{R}^n) \\subseteq L^4(\\mathbb{R}^n)$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "vedi esempio 3.1 (cap. 2)"
+  },
+
+{
+    "id": 16,
+    "nota": "Esercitazione casa 1",
+    "tipo": "multipla",
+    "domanda": "Siano $f_n$ funzioni non negative",
+    "opzioni": [
+      "$f_n \\rightharpoonup 0$ in $L^2 \\implies f_n \\longrightarrow 0$ in $L^2$",
+      "$f_n \\longrightarrow 0$ in $L^1 \\implies f_n \\longrightarrow 0$ q.o.",
+      "$f_n \\rightharpoonup f$ in $L^1 \\implies f \\geq 0$",
+      "$f_n \\rightharpoonup 0$ in $L^1 \\implies f_n \\longrightarrow 0$ in $L^1$"
+    ],
+    "risposta_corretta": [
+      "$f_n \\rightharpoonup f$ in $L^1 \\implies f \\geq 0$",
+      "$f_n \\rightharpoonup 0$ in $L^1 \\implies f_n \\longrightarrow 0$ in $L^1$"
+    ],
+    "spiegazione": "Per la non-negatività, testando la convergenza debole contro la funzione costante $1 \\in L^\\infty$, la norma $L^1$ tende a zero"
+  },
+
+  {
+    "id": 17,
+    "nota": "Esercitazione casa 1",
+    "tipo": "vero_falso",
+    "domanda": "Ogni successione limitata in $L^2(\\mathbb{R}^3)$ ammette almeno un'estratta convergente",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Controesempi: fuga di massa all'infinito, bubbling, oscillazioni"
+  },
+
+  {
+    "id": 18,
+    "nota": "Esercitazione casa 1",
+    "tipo": "vero_falso",
+    "domanda": "$\\forall \\mu$ misura reale (la cui massa è quindi finita) definita su $\\mathbb{R}^2$ vale: $\\lim\\limits_{t \\to \\infty} \\mu(B_t(t^2,3t^2)) = 0$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "Per $t$ che tende ad infinito, il raggio cresce linearmente ma la distanza dal centro della palla cresce quadraticamente. Quindi, per ogi punto fissato trovo un istante da cui sarò definitivamente fuori dalla palla"
+  },
+
+  {
+    "id": 19,
+    "nota": "Esercitazione casa 1",
+    "tipo": "vero_falso",
+    "domanda": "Sia $u \\in C_c(\\mathbb{R}^3) \\implies u \\in L^4({R}^3)$",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": ""
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+RINOMINARE GLI ID DI QUESTI POI 
+
+  [
+  {
+    "id": 20,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
-    "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in VL \\implies f \\in AC $?",
+    "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in VL \\implies f \\in AC$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: la funzione di Cantor-Vitali. In generale, vale il viceversa"
   },
   {
-    "id": 15,
+    "id": 21,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
-    "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in AC \\implies f \\in VL$?",
+    "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in AC \\implies f \\in VL$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "Posso estendere f con continuità su $[1,2]$ e sfruttare la prop. 4.6"
+    "spiegazione": "Posso estendere $f$ con continuità su $[1,2]$ e sfruttare la prop. 4.6"
   },
   {
-    "id": 16,
+    "id": 22,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
-    "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in C^1([1,2]) \\implies f \\in VL$?",
+    "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in C^1([1,2]) \\implies f \\in VL$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "$f \\in C^1([1,2]) \\implies Var(f,[1,2]) = \\int_{1}^{2} |f'(t)|dt \\leq M < \\infty$.(Weierstrass)"
+    "spiegazione": "$f \\in C^1([1,2]) \\implies \\text{Var}(f,[1,2]) = \\int_{1}^{2} |f'(t)|dt \\leq M < \\infty$ (Weierstrass)"
   },
   {
-    "id": 17,
+    "id": 23,
     "nota": "Scheda 4, ex. 17",
     "tipo": "vero_falso",
-    "domanda": "Sia $f:]1,2[ \\to \\mathbb{R}$, se $f \\in UC \\implies f \\in AC$?",
+    "domanda": "Sia $f: ]1,2[ \\to \\mathbb{R}$, se $f \\in UC \\implies f \\in AC$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: qualsiasi funzione che oscilla troppo, che non è $VL$ e quindi non può essere $AC$. In generale, vale il viceversa"
   },
   {
-    "id": 18,
+    "id": 24,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\int_{a}^{b} f'(t)dt \\leq f(b) - f(a)$, $\\forall 0 < a < b < 1$?",
+    "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\int_{a}^{b} f'(t)dt \\leq f(b) - f(a)$, $\\forall 0 < a < b < 1$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "Questa disuguaglianza è valida per funzioni monotone non decrescenti (teo. 2.8 )"
+    "spiegazione": "Questa disuguaglianza è valida per funzioni monotone non decrescenti (teo. 2.8)"
   },
   {
-    "id": 19,
+    "id": 25,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $f \\in VL(]0,1[)$?",
+    "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $f \\in VL(]0,1[)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "La monotonia non basta, mi serve anche che oscilli poco"
   },
   {
-    "id": 20,
+    "id": 26,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\exists F \\subset ]0,1[$ finito tale che $f \\in C^0(]0,1[ \\setminus F)$?",
+    "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $\\exists F \\subset ]0,1[$ finito tale che $f \\in C^0(]0,1[ \\setminus F)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "f è monotona, quindi ammetterà al più una discontinuità di salto. Dal teo. 2.2, l'insieme delle discontinuità di salto sarà al più numerabile, ma non necessariamente finito"
+    "spiegazione": "$f$ è monotona, quindi ammetterà al più una discontinuità di salto. Dal teo. 2.2, l'insieme delle discontinuità di salto sarà al più numerabile, ma non necessariamente finito"
   },
   {
-    "id": 21,
+    "id": 27,
     "nota": "Scheda 4, ex. 18",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f:]0,1[ \\to \\mathbb{R}$ monotona non crescente: $g(x) = xf(x) \\in VL(]a,b[), \\forall 0 < a < b < 1$?",
+    "domanda": "$\\forall f: ]0,1[ \\to \\mathbb{R}$ monotona non crescente: $g(x) = xf(x) \\in VL(]a,b[), \\forall 0 < a < b < 1$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "$x$ è lip. quindi è $VL$, $f(b) \\leq f(x) \\leq f(a), \\forall x \\in ]a,b[ \\implies f$ monotona e limitata $\\implies f \\in VL$. VL è chiuso per il prodotto"
+    "spiegazione": "$x$ è lip. quindi è $VL$, $f(b) \\leq f(x) \\leq f(a), \\forall x \\in ]0,1[ \\implies f$ monotona e limitata $\\implies f \\in VL$. $VL$ è chiuso per il prodotto"
   },
   {
-    "id": 22,
+    "id": 28,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(f+g) = Var(f) + Var(g)$?",
+    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(f+g) = \\text{Var}(f) + \\text{Var}(g)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "in generale vale $\\leq$ (oss. 3.5)"
   },
   {
-    "id": 23,
+    "id": 29,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(f+c) = Var(f)$?",
+    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(f+c) = \\text{Var}(f)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "le costanti hanno variazione nulla + oss. 3.5"
   },
   {
-    "id": 24,
+    "id": 30,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $f$ è limitata?",
+    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $f$ è limitata?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "$Var(f) < \\infty \\implies |f(x) - f(a)| \\leq Var(f) < \\infty, \\forall x \\in \\mathbb{R}$, con $a$ fissato"
+    "spiegazione": "$\\text{Var}(f) < \\infty \\implies |f(x) - f(a)| \\leq \\text{Var}(f) < \\infty, \\forall x \\in \\mathbb{R}$, con $a$ fissato"
   },
   {
-    "id": 25,
+    "id": 31,
     "nota": "Scheda 4, ex. 19",
     "tipo": "vero_falso",
-    "domanda": "$ \\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$, data $h: \\mathbb{R} \\to \\mathbb{R}$: $Var(-f) + Var(-g) = - Var(f) - Var(g)$?",
+    "domanda": "$\\forall f,g: \\mathbb{R} \\to \\mathbb{R}, f,g \\in VL, \\forall c \\in \\mathbb{R}$: $\\text{Var}(-f) + \\text{Var}(-g) = - \\text{Var}(f) - \\text{Var}(g)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "La variazione è una quantità non negativa"
   },
   {
-    "id": 26,
+    "id": 32,
     "nota": "Scheda 4, ex. 20",
     "tipo": "aperta",
     "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = x - x^2$",
@@ -270,25 +371,25 @@
     "spiegazione": "⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3. Per calcolare l'integrale spezzo $[0,1] = [0,1/2[ \\cup [1/2,1]$ (risp. $f$ crescente, decrescente)"
   },
   {
-    "id": 27,
+    "id": 33,
     "nota": "Scheda 4, ex. 20",
     "tipo": "aperta",
-    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(1/x) + e^x $",
+    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(\\frac{1}{x}) + e^x$",
     "opzioni": [],
     "risposta_corretta": "infinito",
-    "spiegazione": "⚠️ La funzione ha infinite oscillazioni tra ]0,1["
+    "spiegazione": "⚠️ La funzione ha infinite oscillazioni tra $]0,1[$"
   },
   {
-    "id": 28,
+    "id": 34,
     "nota": "Scheda 4, ex. 20",
     "tipo": "aperta",
-    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(200\\pi*x)$",
+    "domanda": "Calcola la variazione totale di $f: ]0,1[ \\to \\mathbb{R}, f(x) = \\sin(200\\pi x)$",
     "opzioni": [],
     "risposta_corretta": "400",
-    "spiegazione": "⚠️⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3.  Osservo che il periodo è $\\frac{1}{100}$, che in $f$ compie $100$ oscillazioni nell'intervallo. Calcolo l'integrale tra 0 e $\\frac{1}{100}$, moltiplico per tutti e 100 i periodi e finisco il conto"
+    "spiegazione": "⚠️⚠️ Posso estendere con continuità su $[0,1]$ e non ho problemi di derivabilità agli estremi. Quindi vale la formula vista nell'ex. 3.3. Osservo che il periodo è $\\frac{1}{100}$, che in $f$ compie $100$ oscillazioni nell'intervallo. Calcolo l'integrale tra $0$ e $\\frac{1}{100}$, moltiplico per tutti e $100$ i periodi e finisco il conto"
   },
   {
-    "id": 29,
+    "id": 35,
     "nota": "Scheda 4, ex. 21",
     "tipo": "multipla",
     "domanda": "Stabilire quali delle seguenti funzioni $f: ]0,1[ \\to \\mathbb{R}$ sono assolutamente continue",
@@ -303,16 +404,16 @@
     "spiegazione": "Vedere ex. 4.7"
   },
   {
-    "id": 30,
+    "id": 36,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f \\implies f_n \\rightharpoonup f$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "Usare Holder"
+    "spiegazione": "Usare Hölder"
   },
   {
-    "id": 31,
+    "id": 37,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\rightharpoonup g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
@@ -321,21 +422,22 @@
     "spiegazione": "Controesempio: $f_n = g_n = \\sin(nx)$"
   },
   {
-    "id": 32,
+    "id": 38,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\rightharpoonup f$ in $L^3$, $g_n \\longrightarrow g$ in $L^{\\frac{3}{2}} \\implies \\int f_n g_n \\longrightarrow \\int fg$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "Aggiungi e sottrai $f_n g$ e usa Holder"
+    "spiegazione": "Aggiungi e sottrai $f_n g$ e usa Hölder"
   },
   {
-    "id": 33,
+    "id": 39,
     "nota": "Scheda 3, ex. 11",
     "tipo": "vero_falso",
-    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f$ q.o. $ \\implies f_n \\rightharpoonup f$?",
+    "domanda": "Siano $f_n,f \\in L^3(\\mathbb{R}^2): f_n \\longrightarrow f$ q.o. $\\implies f_n \\rightharpoonup f$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = n \\chi_{[0,\\frac{1}{n}]}$"
   }
+]
 ]
