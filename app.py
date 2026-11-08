@@ -22,7 +22,7 @@ def carica_domande():
 
 
 def main():
-  st.title("Simulazione PRimo Esonero") 
+  st.title("Simulazione Primo Esonero") 
 
   tutte_le_domande = carica_domande()
   if not tutte_le_domande:
