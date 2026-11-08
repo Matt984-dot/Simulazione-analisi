@@ -1,49 +1,46 @@
-[
+ [
   {
     "id": 1,
     "nota": "Esercitazione EA1",
     "tipo": "multipla",
     "domanda": "Sia $\\mu_n = a_n \\delta_{\\frac{1}{n}} - b_n \\delta_{-\\frac{1}{n}}$",
     "opzioni": [
-     "$a_n = b_n = 1 \\implies \\mu_n \\longrightarrow 0$ fortemente",
-     "$\\mu_n$ sono misure di Radon",
-     "$a_n, b_n$ sono successioni limitate $\\implies$ esiste una sottosuccessione che converge star debolmente",
-     "$a_n = b_n \\implies \\mu_n$ converge star debolemente a 0"
+      "$a_n = b_n = 1 \\implies \\mu_n \\longrightarrow 0$ fortemente",
+      "$\\mu_n$ sono misure di Radon",
+      "$a_n, b_n$ sono successioni limitate $\\implies$ esiste una sottosuccessione che converge star debolmente",
+      "$a_n = b_n \\implies \\mu_n$ converge star debolmente a 0"
     ],
     "risposta_corretta": [
-     "$\\mu_n$ sono misure di Radon",
-     "$a_n, b_n$ sono successioni limitate $\\implies$ esiste una sottosuccessione che converge star debolmente"
+      "$\\mu_n$ sono misure di Radon",
+      "$a_n, b_n$ sono successioni limitate $\\implies$ esiste una sottosuccessione che converge star debolmente"
     ],
     "spiegazione": "$\\mu_n$ è combinazione lineare di misure di Radon; Dall'oss. 3.10 (cap. 3) segue l'altra risposta"
   },
-
-{
+  {
     "id": 2,
     "nota": "Esercitazione EA1",
     "tipo": "multipla",
     "domanda": "Sia $f$ una funzione misurabile non negativa e sia $f_n(x) = f(x+n^2)$",
     "opzioni": [
-     "$f \\in L^1_{loc}(\\mathbb{R}) \\implies \\forall n \\in \\mathbb{N}, \\mu_n(E) = \\int_E f_n(x)dx$, dove $E$ è misurabile, è una misura di Radon",
-     "$f \\in L^2(\\mathbb{R}) \\implies f_n$ convergono fortemente in $L^2(\\mathbb{R})$",
-     "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathbb{R})$"    
+      "$f \\in L^1_{loc}(\\mathbb{R}) \\implies \\forall n \\in \\mathbb{N}, \\mu_n(E) = \\int_E f_n(x)dx$, dove $E$ è misurabile, è una misura di Radon",
+      "$f \\in L^2(\\mathbb{R}) \\implies f_n$ convergono fortemente in $L^2(\\mathbb{R})$",
+      "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathbb{R})$"
     ],
     "risposta_corretta": [
-     "$f \\in L^1_{loc}(\\mathbb{R}) \\implies \\forall n \\in \\mathbb{N}, \\mu_n(E) = \\int_E f_n(x)dx$, dove $E$ è misurabile, è una misura di Radon",
-     "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathbb{R})$"
+      "$f \\in L^1_{loc}(\\mathbb{R}) \\implies \\forall n \\in \\mathbb{N}, \\mu_n(E) = \\int_E f_n(x)dx$, dove $E$ è misurabile, è una misura di Radon",
+      "$f \\in L^2(\\mathbb{R}) \\implies f_n \\rightharpoonup 0$ in $L^2(\\mathbb{R})$"
     ],
     "spiegazione": "$f \\in L^1_{loc} \\implies f_n$ di Radon $\\implies \\mu_n$ di Radon; dispersione di massa all'infinito"
   },
-
   {
     "id": 3,
     "nota": "Esercitazione EA1",
     "tipo": "vero_falso",
     "domanda": "Siano $\\rho_{\\epsilon}$ i mollificatori standard e sia $f \\in L^2(\\mathbb{R}^n) \\implies f_{\\epsilon} = \\rho_{\\epsilon}*f$ è derivabile infinite volte in senso classico?",
-    "opzioni": ["Vero","Falso"],
+    "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "I mollificatori standard sono $C^{\\infty}$ + la convoluzione regolarizza (oss. 2.7, cap. 3)"
   },
-
   {
     "id": 4,
     "nota": "Esercitazione EA1",
@@ -53,7 +50,6 @@
     "risposta_corretta": "2",
     "spiegazione": "Dal lemma di Riemann-Lebesgue il termine col coseno tende a $0$"
   },
-
   {
     "id": 5,
     "nota": "Esercitazione EA1",
@@ -63,7 +59,6 @@
     "risposta_corretta": "Vero",
     "spiegazione": "La regolarizzata converge sempre alla funzione di partenza (prop. 2.6, cap. 3)"
   },
-
   {
     "id": 6,
     "nota": "Esercitazione EA1",
@@ -73,35 +68,32 @@
     "risposta_corretta": "Vero",
     "spiegazione": "Dispersione di massa all'infinito"
   },
-
   {
     "id": 7,
     "nota": "Esercitazione EA2",
     "tipo": "multipla",
     "domanda": "Quali tra queste funzioni sono $AC(]0,1[)$?",
     "opzioni": [
-     "$\\sin(x^5)$",
-     "$\\cos(\\frac{1}{x})$",
-     "$x^{-\\frac{1}{2}}$",
-     "$e^{-x}$"
-     ],
+      "$\\sin(x^5)$",
+      "$\\cos(\\frac{1}{x})$",
+      "$x^{-\\frac{1}{2}}$",
+      "$e^{-x}$"
+    ],
     "risposta_corretta": [
-     "$\\sin(x^5)$",
-     "$e^{-x}$"
-     ],
+      "$\\sin(x^5)$",
+      "$e^{-x}$"
+    ],
     "spiegazione": "La derivata del seno è limitata in $]0,1[$ (esempio 4.5, cap. 4); l'esponenziale è bello"
   },
-
   {
     "id": 8,
     "nota": "Esercitazione EA2",
     "tipo": "aperta",
-    "domanda": "Calcolare $Var(2\\sqrt{|x|}+6,]-9,4[)$",
+    "domanda": "Calcolare $\\text{Var}(2\\sqrt{|x|}+6,]-9,4[)$",
     "opzioni": [],
     "risposta_corretta": "10",
     "spiegazione": "Spezzo l'intervallo in $]-9,4[ = ]-9,0] \\cup ]0,4[$ e calcolo i due contributi"
   },
-
   {
     "id": 9,
     "nota": "Esercitazione EA2",
@@ -111,7 +103,6 @@
     "risposta_corretta": "0",
     "spiegazione": "Questo inf è una quantità non negativa, pensa alla funzione a zig-zag"
   },
-
   {
     "id": 10,
     "nota": "Esercitazione EA2",
@@ -121,7 +112,6 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $\\chi_{\\mathbb{Q}}$. In generale è vero il viceversa"
   },
-
   {
     "id": 11,
     "nota": "Esercitazione EA2",
@@ -131,7 +121,6 @@
     "risposta_corretta": "Falso",
     "spiegazione": "Questa funzione oscilla molto vicino all'origine $\\implies f \\notin VL \\implies f \\notin AC$"
   },
-
   {
     "id": 12,
     "nota": "Esercitazione EA2",
@@ -139,29 +128,26 @@
     "domanda": "$f(x) = x^2$ definita su tutta $\\mathbb{R}$ è assolutamente continua?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "$2x \\notin L^1$ (esempio 4.5, cap. 4) "
+    "spiegazione": "$2x \\notin L^1$ (esempio 4.5, cap. 4)"
   },
-
   {
     "id": 13,
     "nota": "Esercitazione EA2",
     "tipo": "vero_falso",
-    "domanda": "Sia $u_n: [0,1] \\longrightarrow \\mathbb{R}$ una successione di funzioni di classe $C^1$ che convergono uniformemente a $0 \\implies Var(u_n) \\longrightarrow 0$?",
+    "domanda": "Sia $u_n: [0,1] \\longrightarrow \\mathbb{R}$ una successione di funzioni di classe $C^1$ che convergono uniformemente a $0 \\implies \\text{Var}(u_n) \\longrightarrow 0$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "La convergenza uniforme non garantisce la convergenza delle variazioni totali (ex. 3.9, cap. 4) "
+    "spiegazione": "La convergenza uniforme non garantisce la convergenza delle variazioni totali (ex. 3.9, cap. 4)"
   },
-
   {
     "id": 14,
     "nota": "Esercitazione casa 1",
     "tipo": "vero_falso",
-    "domanda": "Siano $\\rho_epsilon$ i mollificatori standard e sia $f \\in L^2(\\mathbb{R}^n)$. Allora $\\rho_{epsilon}*f = -f*\\rho_{\\epsilon}$",
+    "domanda": "Siano $\\rho_{\\epsilon}$ i mollificatori standard e sia $f \\in L^2(\\mathbb{R}^n)$. Allora $\\rho_{\\epsilon}*f = -f*\\rho_{\\epsilon}$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "La convoluzione è commutativa "
+    "spiegazione": "La convoluzione è commutativa: $\\rho_{\\epsilon}*f = f*\\rho_{\\epsilon}$"
   },
-
   {
     "id": 15,
     "nota": "Esercitazione casa 1",
@@ -169,10 +155,9 @@
     "domanda": "$L^2(\\mathbb{R}^n) \\subseteq L^4(\\mathbb{R}^n)$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "vedi esempio 3.1 (cap. 2)"
+    "spiegazione": "In generale tra spazi $L^p$ su domini di misura infinita non ci sono inclusioni (es. 3.1, cap. 2)"
   },
-
-{
+  {
     "id": 16,
     "nota": "Esercitazione casa 1",
     "tipo": "multipla",
@@ -189,7 +174,6 @@
     ],
     "spiegazione": "Per la non-negatività, testando la convergenza debole contro la funzione costante $1 \\in L^\\infty$, la norma $L^1$ tende a zero"
   },
-
   {
     "id": 17,
     "nota": "Esercitazione casa 1",
@@ -197,9 +181,8 @@
     "domanda": "Ogni successione limitata in $L^2(\\mathbb{R}^3)$ ammette almeno un'estratta convergente",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Falso",
-    "spiegazione": "Controesempi: fuga di massa all'infinito, bubbling, oscillazioni"
+    "spiegazione": "Garantisce solo un'estratta debolmente convergente (per riflessività), non fortemente. Controesempi: fuga di massa, oscillazioni"
   },
-
   {
     "id": 18,
     "nota": "Esercitazione casa 1",
@@ -207,17 +190,16 @@
     "domanda": "$\\forall \\mu$ misura reale (la cui massa è quindi finita) definita su $\\mathbb{R}^2$ vale: $\\lim\\limits_{t \\to \\infty} \\mu(B_t(t^2,3t^2)) = 0$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "Per $t$ che tende ad infinito, il raggio cresce linearmente ma la distanza dal centro della palla cresce quadraticamente. Quindi, per ogi punto fissato trovo un istante da cui sarò definitivamente fuori dalla palla"
+    "spiegazione": "Per $t \\to \\infty$, la distanza del centro della palla cresce quadraticamente mentre il raggio cresce linearmente. Ogni punto è definitivamente fuori dalla palla."
   },
-
   {
     "id": 19,
     "nota": "Esercitazione casa 1",
     "tipo": "vero_falso",
-    "domanda": "Sia $u \\in C_c(\\mathbb{R}^3) \\implies u \\in L^4({R}^3)$",
+    "domanda": "Sia $u \\in C_c(\\mathbb{R}^3) \\implies u \\in L^4(\\mathbb{R}^3)$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": ""
+    "spiegazione": "Le funzioni continue a supporto compatto sono limitate e nulle fuori da un insieme di misura finita, quindi appartengono a ogni $L^p$"
   },
 
 
@@ -227,32 +209,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-RINOMINARE GLI ID DI QUESTI POI 
-
-  [
   {
     "id": 20,
     "nota": "Scheda 4, ex. 17",
@@ -439,5 +395,4 @@ RINOMINARE GLI ID DI QUESTI POI
     "risposta_corretta": "Falso",
     "spiegazione": "Controesempio: $f_n = n \\chi_{[0,\\frac{1}{n}]}$"
   }
-]
 ]
