@@ -550,9 +550,9 @@
     "domanda": "Per quali $p \\in [1, + \\infty]: f_n(x) = \\frac{\\sin(x)^n}{x} \\longrightarrow 0$ in $L^p(\\mathbb{R}^n)$?",
     "opzioni": [
       "$\\forall p \\in [1, + \\infty]$",
-      "$\\forall p \\in ]1, +\\infty]$",
-      "$\\forall p \\in [1, +\\infty[$",
-      "$\\forall p \\in ]1,+\\infty[$"
+      "$\\forall p \\in ]1, + \\infty]$",
+      "$\\forall p \\in [1, + \\infty[$",
+      "$\\forall p \\in ]1, + \\infty[$"
     ],
     "risposta_corretta": "$\\forall p \\in ]1, + \\infty]$",
     "spiegazione": "Devi studiare il comportamento di $f_n$ all'infinito"
