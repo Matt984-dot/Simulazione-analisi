@@ -165,7 +165,10 @@ def main():
     if idx < totale:
       q = domande[idx]
       st.progress((idx + 1) / totale)
-      st.caption(f"Allenamento (Casuale) - Domanda {idx + 1} di {totale} {f'— *{q[\"nota\"] }*' if 'nota' in q else ''}")
+      
+      # Gestione pulita della nota senza errori di sintassi
+      nota_testo = f" — *{q['nota']}*" if 'nota' in q else ""
+      st.caption(f"Allenamento (Casuale) - Domanda {idx + 1} di {totale}{nota_testo}")
 
       st.markdown(f"### {q['domanda']}")
       tipo = q.get("tipo", "vero_falso")
