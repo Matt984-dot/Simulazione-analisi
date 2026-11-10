@@ -796,7 +796,23 @@
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "calcola la norma L2 della successione e nota che f è a supporto compatto"
+  },
+  {
+    "id": 85,
+    "nota": "Cap. 5, ex. 1.2",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\phi \\in \\mathcal{D}(\\mathbb{R})$ non identicamente nulla e sia $\\phi_n(x) = \\frac{\\phi(x)}{n}: \\phi_n \\longrightarrow 0$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "$\\phi in \\mathcal{D}(\\mathbb{R}) = C_C^{\\infty}(\\mathbb{R}) \\implies K = supp \\phi$ compatto $\\implies sup \\phi_n = K$. Inoltre, le derivate sono limitate, quindi: $D^{\\alpha} \\phi_n = \\frac{1}{n}D^{\\alpha} \\phi \\leq \\frac{1}{n}M_alpha \\longrightarrow 0$"
+  },
+  {
+    "id": 86,
+    "nota": "Cap. 5, ex. 1.2",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\phi \\in \\mathcal{D}(\\mathbb{R})$ non identicamente nulla e sia $\\psi_n(x) = \\frac{\\phi(x)\\sin(nx)}{n}: \\psi_n$ converge?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Osservo che nella derivata c'è un termine che oscilla: $D^{\\alpha} \\psi_n = \\phi(x)\\cos(nx) + \\frac{\\phi'(x)\\sin(nx)}{n}$"
   }
-
- 
 ]
