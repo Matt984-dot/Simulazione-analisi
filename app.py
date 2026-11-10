@@ -21,6 +21,13 @@ def carica_domande():
     return []
 
 
+# Funzione per ripulire le stringhe nel confronto (elimina spazi LaTeX superflui)
+def pulisci_stringa(s):
+  if isinstance(s, str):
+    return s.replace(" ", "").strip()
+  return s
+
+
 def main():
   st.title("Simulazione Primo Esonero") 
 
@@ -52,9 +59,12 @@ def main():
       tipo = q.get("tipo", "vero_falso")
 
       if tipo == "multipla":
-        # Gestione multipla: confronta gli insiemi (indipendentemente dall'ordine)
-        user_set = set(risposta_data) if risposta_data else set()
-        corr_set = set(risposta_corretta) if isinstance(risposta_corretta, list) else {risposta_corretta}
+        # Gestione multipla: confronta gli insiemi ripuliti dagli spazi LaTeX
+        user_set = {pulisci_stringa(x) for x in risposta_data} if risposta_data else set()
+        if isinstance(risposta_corretta, list):
+          corr_set = {pulisci_stringa(x) for x in risposta_corretta}
+        else:
+          corr_set = {pulisci_stringa(risposta_corretta)}
         
         is_correct = (user_set == corr_set)
         
@@ -70,9 +80,9 @@ def main():
               f"La risposta corretta era: **{corr_str}** ❌"
           )
       else:
-        # Gestione standard per vero_falso e aperta
-        user_ans_str = str(risposta_data).strip() if risposta_data else ""
-        corr_ans_str = str(risposta_corretta).strip()
+        # Gestione standard per vero_falso e aperta con confronto flessibile
+        user_ans_str = pulisci_stringa(str(risposta_data)) if risposta_data else ""
+        corr_ans_str = pulisci_stringa(str(risposta_corretta))
 
         if user_ans_str.lower() == corr_ans_str.lower():
           st.success(f"La tua risposta: **{risposta_data}** — **Corretta!** ✅")
@@ -118,12 +128,14 @@ def main():
               q["opzioni"],
               key=f"q_{i}",
               index=None,
+              format_func=lambda x: f"{x}", # Permette a Streamlit di interpretare il LaTeX nelle opzioni
           )
         elif tipo == "multipla":
           st.multiselect(
               "Seleziona tutte le risposte corrette:",
               q["opzioni"],
               key=f"q_{i}",
+              format_func=lambda x: f"{x}", # Permette il rendering LaTeX anche nel multiselect
           )
         elif tipo == "aperta":
           st.text_input("Inserisci la tua risposta:", key=f"q_{i}")
