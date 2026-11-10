@@ -105,7 +105,6 @@ def main():
     )
 
     if st.button("Ricomincia il test"):
-      # Pulisce tutta la memoria di sessione per pescare nuove domande al prossimo giro
       for k in list(st.session_state.keys()):
         del st.session_state[k]
       st.rerun()
@@ -119,7 +118,6 @@ def main():
 
         st.markdown(q["domanda"])
 
-        # Gestione dinamica in base al tipo di domanda
         tipo = q.get("tipo", "vero_falso")
 
         if tipo == "vero_falso":
@@ -128,15 +126,12 @@ def main():
               q["opzioni"],
               key=f"q_{i}",
               index=None,
-              format_func=lambda x: f"{x}", # Permette a Streamlit di interpretare il LaTeX nelle opzioni
+              format_func=lambda x: f"{x}",
           )
         elif tipo == "multipla":
-          st.multiselect(
-              "Seleziona tutte le risposte corrette:",
-              q["opzioni"],
-              key=f"q_{i}",
-              format_func=lambda x: f"{x}", # Permette il rendering LaTeX anche nel multiselect
-          )
+          st.write("Seleziona tutte le risposte corrette:")
+          for opt_idx, opzione in enumerate(q["opzioni"]):
+            st.checkbox(opzione, key=f"q_{i}_opt_{opt_idx}")
         elif tipo == "aperta":
           st.text_input("Inserisci la tua risposta:", key=f"q_{i}")
 
@@ -145,6 +140,15 @@ def main():
       submit_button = st.form_submit_button("Invia risposte e vedi risultati")
 
       if submit_button:
+        # Raccoglie le opzioni selezionate per le domande a risposta multipla
+        for i, q in enumerate(domande):
+          if q.get("tipo", "vero_falso") == "multipla":
+            selected = []
+            for opt_idx, opzione in enumerate(q["opzioni"]):
+              if st.session_state.get(f"q_{i}_opt_{opt_idx}", False):
+                selected.append(opzione)
+            st.session_state[f"q_{i}"] = selected
+
         st.session_state.risposte_inviate = True
         st.rerun()
 
