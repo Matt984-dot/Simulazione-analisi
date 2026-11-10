@@ -532,7 +532,7 @@
     "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2)$, posto $E_n = \\{x \\in \\mathbb{R}: f_n(x) \\geq 1\\}, \\lambda(E_n) \\to 0$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "$0 \\geq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\geq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
+    "spiegazione": "$0 \\leq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\leq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
   },
   {
     "id": 57,
