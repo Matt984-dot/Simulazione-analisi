@@ -778,6 +778,25 @@
       "$f(x) = \\sqrt{x}$"
     ],
     "spiegazione": "Vedere ex. 4.7"
+  },
+    {
+    "id": 83,
+    "nota": "Scheda 2, ex. 9",
+    "tipo": "vero_falso",
+    "domanda": "Sia $g \\in L^2(\\mathbb{R}): g_n(x) = g(x - n)$ ammette sottosuccesioni convergenti in $L^2$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "massa che fugge all'infinito, se per assurdo tale sottosuccessione ci fosse dovrebbe convergere a zero, ma g è non identicamente nulla (e quindi ha norma positiva)"
+  },
+  {
+    "id": 84,
+    "nota": "Scheda 2, ex. 9",
+    "tipo": "vero_falso",
+    "domanda": "Sia $f \\in C_C^0(\\mathbb{R}): h_n(x) = g(x - n)f(x)  \\longrightarrow 0$ in $L^2$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "calcola la norma L2 della successione e nota che f è a supporto compatto"
   }
+
  
 ]
