@@ -532,7 +532,7 @@
     "domanda": "$\\forall f_n \\longrightarrow 0$ in $L^1(\\mathbb{R}^2)$, posto $E_n = \\{x \\in \\mathbb{R}: f_n(x) \\geq 1\\}, \\lambda(E_n) \\to 0$",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione": "$0 \\geq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\geq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
+    "spiegazione": "$0 \\leq \\lambda(E_n) = \\int_{E_n}dx \\geq \\int_{E_n} |f_n|dx \\leq \\int_{\\mathbb{R}^2} |f_n|dx = ||f_n||_{L^1} \\to 0$"
   },
   {
     "id": 57,
@@ -775,11 +775,12 @@
       "$f(x) = x^2 \\sin\\left(\\frac{1}{x}\\right)$"
     ],
     "risposta_corretta": [
-      "$f(x) = \\sqrt{x}$"
+      "$f(x) = \\sqrt{x}$",
+      "$f(x) = x^2 \\sin\\left(\\frac{1}{x}\\right)$"
     ],
-    "spiegazione": "Vedere ex. 4.7"
-  },
-    {
+    "spiegazione": "Vedere ex. 4.7; la derivata di $f(x) = x^2 \\sin\\left(\\frac{1}{x}\\right)$ vive in $L^1$, così come $\\sqrt{x}$ ha derivata integrabile su intervalli compatti in $]0,1[$ (o comunque a variazione limitata/assolutamente continua sui compatti)."
+   },
+   {
     "id": 83,
     "nota": "Scheda 2, ex. 9",
     "tipo": "vero_falso",
@@ -796,7 +797,86 @@
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "calcola la norma L2 della successione e nota che f è a supporto compatto"
+  },
+  {
+    "id": 85,
+    "nota": "Cap. 5, ex. 1.2",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\phi \\in \\mathcal{D}(\\mathbb{R})$ non identicamente nulla e sia $\\phi_n(x) = \\frac{\\phi(x)}{n}: \\phi_n \\longrightarrow 0$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "$\\phi in \\mathcal{D}(\\mathbb{R}) = C_C^{\\infty}(\\mathbb{R}) \\implies K = supp \\phi$ compatto $\\implies sup \\phi_n = K$. Inoltre, le derivate sono limitate, quindi: $D^{\\alpha} \\phi_n = \\frac{1}{n}D^{\\alpha} \\phi \\leq \\frac{1}{n}M_alpha \\longrightarrow 0$"
+  },
+  {
+    "id": 86,
+    "nota": "Cap. 5, ex. 1.2",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\phi \\in \\mathcal{D}(\\mathbb{R})$ non identicamente nulla e sia $\\psi_n(x) = \\frac{\\phi(x)\\sin(nx)}{n}: \\psi_n$ converge?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "Osservo che nella derivata c'è un termine che oscilla: $D^{\\alpha} \\psi_n = \\phi(x)\\cos(nx) + \\frac{\\phi'(x)\\sin(nx)}{n}$"
+  },
+{
+    "id": 87,
+    "nota": "Scheda 5, ex. 22, punto (1)",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $x_n \\to 0$ in $\\mathbb{R}^N$, allora $\\varphi_n(\\cdot) := \\varphi(\\cdot - x_n) \\longrightarrow \\varphi(\\cdot)$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "⚠️Il supporto si sposta ma rimane contenuto in un compatto $K + B$ (poiché $x_n$ è limitata, prendi come $B$ la palla che contiene tutti i punti $x_n$), e le derivate convergono uniformemente: $D^{\\alpha} \\varphi_n = D^{\\alpha}\\varphi(\\cdot - x_n) \\to D^{\\alpha}\\varphi$."
+  },
+  {
+    "id": 88,
+    "nota": "Scheda 5, ex. 22, punto (2)",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $|x_n| \\to +\\infty$, allora $\\varphi_n(\\cdot) := \\varphi(\\cdot - x_n) \\longrightarrow 0$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "⚠️Se $|x_n| \\to +\\infty$, non esiste un compatto $C$ tale che $\\text{supp}(\\varphi_n) = K + x_n \\subset C$ per ogni $n$, quindi la convergenza in $\\mathcal{D}$ fallisce."
+  },
+  {
+    "id": 89,
+    "nota": "Scheda 5, ex. 22, punto (3)",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $c_n \\to c$ in $\\mathbb{R}$, allora $\\varphi_n := c_n\\varphi \\longrightarrow c\\varphi$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "⚠️Moltiplicare una funzione test per una costante o una successione convergente non ne modifica il supporto, e le derivate convergono linearmente: $D^{\\alpha}(c_n\\varphi) = c_n D^{\\alpha}\\varphi \\to c D^{\\alpha}\\varphi$."
+  },
+  {
+    "id": 90,
+    "nota": "Scheda 5, ex. 22, punto (4)",
+    "tipo": "vero_falso",
+    "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Allora $\\varphi_n(\\cdot) := \\frac{\\varphi(n\\cdot)}{n} \\longrightarrow 0$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "⚠️Derivando compare un fattore di scala: $\\varphi_n'(x) = \\varphi'(nx)$. Se $\\varphi'(0) \\neq 0$ in un intorno dell'origine, questo valore non tende a zero (la funzione si stringe ma si alza in altezza)."
+  },
+{
+    "id": 91,
+    "nota": "Scheda 5, ex. 23, punto (1)",
+    "tipo": "vero_falso",
+    "domanda": "Siano $f_n \\subset L^3(\\mathbb{R}^2)$, $f \\in L^3(\\mathbb{R}^2)$. Se $f_n \\to f$ in $L^3(\\mathbb{R}^2)$ (forte), allora $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\mathbb{R}^2)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "⚠️La convergenza forte in $L^3$ implica la convergenza debole e quindi la convergenza in $\\mathcal{D}'$. Inoltre, poiché $\\mathcal{D}(\\mathbb{R}^2) \\subseteq L^3(\\mathbb{R}^2)$ (risultato 2.6), le funzioni test sono ben integrate."
+  },
+  {
+    "id": 92,
+    "nota": "Scheda 5, ex. 23, punto (2)",
+    "tipo": "vero_falso",
+    "domanda": "Siano $f_n \\subset L^3(\\mathbb{R}^2)$, $f \\in L^3(\\mathbb{R}^2)$. Se $f_n \\rightharpoonup f$ in $L^3(\\mathbb{R}^2)$ (debole), allora $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\mathbb{R}^2)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione": "⚠️Sfrutta la catena di implicazioni: la convergenza debole in $L^p$ si riflette direttamente come convergenza nello spazio delle distribuzioni $\\mathcal{D}'$."
+  },
+  {
+    "id": 93,
+    "nota": "Scheda 5, ex. 23, punto (3)",
+    "tipo": "vero_falso",
+    "domanda": "Siano $f_n \\subset L^3(\\Omega)$, $f \\in L^3(\\Omega)$. Se $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\Omega)$, allora $f_n \\to f$ in $L^3(\\Omega)$?",
+    "opzioni": ["Vero", "Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione": "⚠️In generale è falso: la convergenza in $\\mathcal{D}'$ non basta per la convergenza forte in $L^3$, a meno che la successione $f_n$ non sia limitata (vedi risultato 2.4)."
   }
-
- 
 ]
