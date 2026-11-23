@@ -1,0 +1,89 @@
+ [
+    {
+        "id": 1,
+        "nota": "Esercitazione EA3",
+        "tipo": "multipla",
+        "domanda": "Sia $\\rho \\in C_c^{\\infty}(\\mathbb{R}^2)$ una funzione il cui integrale su tutto $\\mathbb{R}^2$ è $1$, e siano $\\rho_n(x) = n^2 \\rho(nx), \\forall x \\in \\mathbb{R}^2$",
+        "opzioni": [
+            "$T_{\\rho_n} \\longrightarrow T_{\\delta_0} nel senso delle distribuzioni$",
+            "$\\rho_n$ ammette una sottosuccessione convergente debolmente in $L^2(\\mathbb{R}^2)$",
+            "Esiste un unico $p \\in [1, + \\infty]$ tale che ${\\rho_n}$ è limitata in $L^p(\\mathbb{R}^2)$",
+            "$\\lim_{n \\to + \\infty} \\rho_n * f(x) - f(x) = 0$ per ogni funzione continua $f$ e per ogni $x \\in \\mathbb{R}^2$"
+        ],
+        "risposta_corretta": [
+            "$T_{\\rho_n} \\longrightarrow T_{\\delta_0} nel senso delle distribuzioni$",
+            "Esiste un unico $p \\in [1, + \\infty]$ tale che ${\\rho_n}$ è limitata in $L^p(\\mathbb{R}^2)$",
+            "$\\lim_{n \\to + \\infty} \\rho_n * f(x) - f(x) = 0$ per ogni funzione continua $f$ e per ogni $x \\in \\mathbb{R}^2$"
+        ],
+        "spiegazione": ""
+    },
+    {
+        "id": 2,
+        "nota": "Esercitazione EA3",
+        "tipo": "multipla",
+        "domanda": "Stabilire quali tra queste sono distribuzioni su $\\mathbb{R}$",
+        "opzioni": [
+            "$T(\\phi) = \\int_0^{+\\infty} \\phi(t)dt$",
+            "$T(\\phi) = e^{-(\\phi(0))^2}$",
+            "$T(\\phi) = 5 \\lim_{n \\to + \\infty} \\phi(\\frac{3}{2n})$"
+        ],
+        "risposta_corretta": [
+            "$T(\\phi) = \\int_0^{+\\infty} \\phi(t)dt$",
+            "$T(\\phi) = 5 \\lim_{n \\to + \\infty} \\phi(\\frac{3}{2n})$"
+        ],
+        "spiegazione": ""
+    },
+    {
+        "id": 3,
+        "nota": "Esercitazione EA3",
+        "tipo": "multipla",
+        "domanda": "Sia ${u_n} \\subset L^1(\\mathbb{R})$ tale che per ogni aperto $A$ ha distanza positiva dall'origine",
+        "opzioni": [
+            "$u_n \\rightharpoonup u$ in $L^1 \\implies u = 0$",
+            "${u_n}$ limitata in $L^1 \\implies \\exists c$ costante ed $\\exists {u_n}$ convergente a $c \\delta_0$ nel senso delle distribuzioni",
+            "${u_n}$ ammette una sottosuccessione convergente nel senso delle distribuzioni"
+        ],
+        "risposta_corretta": [
+             "$u_n \\rightharpoonup u$ in $L^1 \\implies u = 0$",
+             "${u_n}$ limitata in $L^1 \\implies \\exists c$ costante ed $\\exists {u_n}$ convergente a $c \\delta_0$ nel senso delle distribuzioni"
+        ],
+        "spiegazione": ""
+    },
+    {
+        "id": 4,
+        "nota": "Esercitazione EA3",
+        "tipo": "aperta",
+        "domanda": "Siano $T_n$ distribuzioni in $D'(\\mathbb{R}): \\langle T_n, \\phi \\rangle = 3 \\phi(2) + \\phi(2n)$ e sia $T$ il limite di $T_n$ in $D'$. Calcolare $\\max{\\langle T, \\phi \\rangle: \\phi \\in D(\\mathbb{R}), ||\\phi|| \\leq 1}$",
+        "opzioni":[],
+        "risposta_corretta": "3",
+        "spiegazione":""
+
+    },
+    {
+        "id": 5,
+        "nota":"Esercitazione EA3",
+        "tipo":"aperta",
+        "domanda": "Sia $u$ la funzione caratteristica di $]-1,5[$ e sia $g$ una funzione test tale che $g(x) = -x^2, \\forall x \\in ]-10,10[$. Calcolare $\\langle T_u',g \\rangle$",
+        "opzioni":[],
+        "risposta_corretta":"24",
+        "spiegazione":""
+    },
+    {
+        "id": 6,
+        "nota":"Esercitazione EA3",
+        "tipo":"vero_falso",
+        "domanda": "$T_{|x-3|}'' = 2\\delta_3$",
+        "opzioni":["Vero","Falso"],
+        "risposta_corretta": "Vero",
+        "spiegazione":""
+    },
+    {
+        "id":7,
+        "nota":"Esercitazione EA3",
+        "tipo":"vero_falso",
+        "domanda":"Sia $f: \\mathbb{R} \\longrightarrow \\mathbb{R}, f(x) = z$ se $z \\leq x \\leq z + 1 \\forall x \\in \\mathbb{R}, z \\in \\mathbb{Z}$. Allora $\\langle T_f', \\varphi \\rangle \\geq 0$ per ogni funzione test $\\varphi \\geq 0$",
+        "opzioni":["Vero","Falso"],
+        "risposta_corretta":"Vero",
+        "spiegazione":""
+    }
+]
