@@ -4,16 +4,23 @@ import streamlit as st
 
 # Configurazione della pagina
 st.set_page_config(
-    page_title="Simulazione Esonero Analisi Superiore", page_icon="📐", layout="centered"
+    page_title="Simulazione Esonero Analisi Superiore",
+    page_icon="📐",
+    layout="centered",
 )
 
+FILE_ESONERI = {
+    "1° Esonero": "domande.json",
+    "2° Esonero": "domande2.json",
+}
 
-def carica_domande():
+
+def carica_domande(percorso_file):
   try:
-    with open("domande.json", "r", encoding="utf-8") as f:
+    with open(percorso_file, "r", encoding="utf-8") as f:
       return json.load(f)
   except FileNotFoundError:
-    st.error("File 'domande.json' non trovato nella cartella!")
+    st.error(f"File '{percorso_file}' non trovato nella cartella!")
     return []
 
 
@@ -24,9 +31,11 @@ def pulisci_stringa(s):
 
 
 def verifica_risposta_singola(risposta_data, risposta_corretta, tipo):
-  """Funzione di supporto per verificare una singola risposta"""
+  """Funzione di supporto per verificare una singola risposta."""
   if tipo == "multipla":
-    user_set = {pulisci_stringa(x) for x in risposta_data} if risposta_data else set()
+    user_set = (
+        {pulisci_stringa(x) for x in risposta_data} if risposta_data else set()
+    )
     if isinstance(risposta_corretta, list):
       corr_set = {pulisci_stringa(x) for x in risposta_corretta}
     else:
@@ -41,36 +50,49 @@ def verifica_risposta_singola(risposta_data, risposta_corretta, tipo):
 def main():
   st.title("Simulazione Esonero Analisi Superiore")
 
-  tutte_le_domande = carica_domande()
+  # --- SIDEBAR PER IMPOSTAZIONI E MODALITÀ ---
+  st.sidebar.header("⚙️ Impostazioni Test")
+
+  esonero_scelto = st.sidebar.selectbox(
+      "Seleziona il test:",
+      list(FILE_ESONERI.keys()),
+      index=1,  # Default sul 2° Esonero; metti 0 per partire dal 1°
+  )
+  file_domande_scelto = FILE_ESONERI[esonero_scelto]
+
+  tutte_le_domande = carica_domande(file_domande_scelto)
   if not tutte_le_domande:
     return
 
-  # --- SIDEBAR PER IMPOSTAZIONI E MODALITÀ ---
-  st.sidebar.header("⚙️ Impostazioni Test")
-  
   modalita = st.sidebar.radio(
       "Scegli la modalità:",
-      ("Modalità Esame (Tutte insieme)", "Modalità Allenamento (Casuali, una per volta)")
-  )
-  
-  max_q = len(tutte_le_domande)
-  num_pesca = st.sidebar.slider(
-      "Numero di domande da estrarre:",
-      min_value=5,
-      max_value=min(50, max_q),
-      value=min(20, max_q)  # Default a 20 domande
+      (
+          "Modalità Esame (Tutte insieme)",
+          "Modalità Allenamento (Casuali, una per volta)",
+      ),
   )
 
-  # Se cambia la modalità o il numero di domande, resettiamo la sessione
-  if "ultima_modalita" not in st.session_state or st.session_state.ultima_modalita != modalita or "num_pesca_prec" not in st.session_state or st.session_state.num_pesca_prec != num_pesca:
-    st.session_state.ultima_modalita = modalita
-    st.session_state.num_pesca_prec = num_pesca
+  max_q = len(tutte_le_domande)
+  min_q = min(5, max_q)
+  num_pesca = st.sidebar.slider(
+      "Numero di domande da estrarre:",
+      min_value=min_q,
+      max_value=min(50, max_q),
+      value=min(20, max_q),
+  )
+
+  # Reset dello stato quando cambia test, modalità o numero di domande
+  stato_corrente = (file_domande_scelto, modalita, num_pesca)
+  if (
+      "stato_prec" not in st.session_state
+      or st.session_state.stato_prec != stato_corrente
+  ):
+    st.session_state.stato_prec = stato_corrente
     for k in list(st.session_state.keys()):
-      if k not in ["ultima_modalita", "num_pesca_prec"]:
+      if k != "stato_prec":
         del st.session_state[k]
     st.rerun()
 
-  # Inizializzazione delle domande pescate (valida per entrambe le modalità)
   if "domande_test" not in st.session_state:
     st.session_state.domande_test = random.sample(tutte_le_domande, num_pesca)
 
@@ -82,8 +104,11 @@ def main():
   if "Modalità Esame" in modalita:
     if not st.session_state.get("risposte_inviate", False):
       with st.form("form_quiz"):
-        st.info(f"📝 **Modalità Esame attiva**: Stai affrontando un set di {len(domande)} domande. Rispondi a tutto e invia.")
-        
+        st.info(
+            f"📝 **{esonero_scelto} — Modalità Esame attiva**: Stai affrontando"
+            f" un set di {len(domande)} domande. Rispondi a tutto e invia."
+        )
+
         for i, q in enumerate(domande):
           st.markdown(f"### Domanda {i + 1}")
           if "nota" in q:
@@ -92,7 +117,13 @@ def main():
 
           tipo = q.get("tipo", "vero_falso")
           if tipo == "vero_falso":
-            st.radio("Seleziona un'opzione:", q["opzioni"], key=f"q_{i}", index=None, format_func=lambda x: f"{x}")
+            st.radio(
+                "Seleziona un'opzione:",
+                q["opzioni"],
+                key=f"q_{i}",
+                index=None,
+                format_func=lambda x: f"{x}",
+            )
           elif tipo == "multipla":
             st.write("Seleziona tutte le risposte corrette:")
             for opt_idx, opzione in enumerate(q["opzioni"]):
@@ -103,17 +134,19 @@ def main():
           st.divider()
 
         if st.form_submit_button("Invia risposte e vedi risultati"):
-          # Raccoglie le risposte multiple
           for i, q in enumerate(domande):
             if q.get("tipo", "vero_falso") == "multipla":
-              selected = [opzione for opt_idx, opzione in enumerate(q["opzioni"]) if st.session_state.get(f"q_{i}_opt_{opt_idx}", False)]
+              selected = [
+                  opzione
+                  for opt_idx, opzione in enumerate(q["opzioni"])
+                  if st.session_state.get(f"q_{i}_opt_{opt_idx}", False)
+              ]
               st.session_state[f"q_{i}"] = selected
           st.session_state.risposte_inviate = True
           st.rerun()
 
     else:
-      # Mostra i risultati dell'esame
-      st.header("Risultati e Spiegazioni")
+      st.header(f"Risultati e Spiegazioni — {esonero_scelto}")
       punteggio = 0
       totale = len(domande)
 
@@ -123,11 +156,19 @@ def main():
         tipo = q.get("tipo", "vero_falso")
 
         st.markdown(f"**Domanda {i + 1}:** {q['domanda']}")
-        is_correct = verifica_risposta_singola(risposta_data, risposta_corretta, tipo)
+        is_correct = verifica_risposta_singola(
+            risposta_data, risposta_corretta, tipo
+        )
 
         if tipo == "multipla":
-          user_str = ", ".join(risposta_data) if risposta_data else "Nessuna risposta"
-          corr_str = ", ".join(risposta_corretta) if isinstance(risposta_corretta, list) else str(risposta_corretta)
+          user_str = (
+              ", ".join(risposta_data) if risposta_data else "Nessuna risposta"
+          )
+          corr_str = (
+              ", ".join(risposta_corretta)
+              if isinstance(risposta_corretta, list)
+              else str(risposta_corretta)
+          )
         else:
           user_str = str(risposta_data) if risposta_data else "Nessuna risposta"
           corr_str = str(risposta_corretta)
@@ -136,17 +177,21 @@ def main():
           st.success(f"La tua risposta: **{user_str}** — **Corretta!** ✅")
           punteggio += 1
         else:
-          st.error(f"La tua risposta: **{user_str}** — La risposta corretta era: **{corr_str}** ❌")
+          st.error(
+              f"La tua risposta: **{user_str}** — La risposta corretta era:"
+              f" **{corr_str}** ❌"
+          )
 
         with st.expander("🔍 Mostra spiegazione dettagliata"):
           st.markdown(q["spiegazione"])
         st.divider()
 
-      st.subheader(f"Punteggio finale: {punteggio} su {totale} ({round((punteggio/totale)*100, 1)}%)")
+      percentuale = round((punteggio / totale) * 100, 1) if totale > 0 else 0
+      st.subheader(f"Punteggio finale: {punteggio} su {totale} ({percentuale}%)")
 
       if st.button("Ricomincia il test"):
         for k in list(st.session_state.keys()):
-          if k not in ["ultima_modalita", "num_pesca_prec"]:
+          if k != "stato_prec":
             del st.session_state[k]
         st.rerun()
 
@@ -165,17 +210,24 @@ def main():
     if idx < totale:
       q = domande[idx]
       st.progress((idx + 1) / totale)
-      
-      # Gestione pulita della nota senza errori di sintassi
-      nota_testo = f" — *{q['nota']}*" if 'nota' in q else ""
-      st.caption(f"Allenamento (Casuale) - Domanda {idx + 1} di {totale}{nota_testo}")
+
+      nota_testo = f" — *{q['nota']}*" if "nota" in q else ""
+      st.caption(
+          f"{esonero_scelto} · Allenamento (Casuale) - Domanda {idx + 1} di"
+          f" {totale}{nota_testo}"
+      )
 
       st.markdown(f"### {q['domanda']}")
       tipo = q.get("tipo", "vero_falso")
 
-      # Mostra i widget interattivi
       if tipo == "vero_falso":
-        risposta_utente = st.radio("Seleziona un'opzione:", q["opzioni"], key=f"train_q_{idx}", index=None, format_func=lambda x: f"{x}")
+        risposta_utente = st.radio(
+            "Seleziona un'opzione:",
+            q["opzioni"],
+            key=f"train_q_{idx}",
+            index=None,
+            format_func=lambda x: f"{x}",
+        )
       elif tipo == "multipla":
         st.write("Seleziona tutte le risposte corrette:")
         risposta_utente = []
@@ -183,18 +235,21 @@ def main():
           if st.checkbox(opzione, key=f"train_q_{idx}_opt_{opt_idx}"):
             risposta_utente.append(opzione)
       elif tipo == "aperta":
-        risposta_utente = st.text_input("Inserisci la tua risposta:", key=f"train_q_{idx}")
+        risposta_utente = st.text_input(
+            "Inserisci la tua risposta:", key=f"train_q_{idx}"
+        )
 
       st.markdown("---")
 
-      # Pulsante di verifica immediata
       if not st.session_state.verificato_corrente:
         if st.button("Verifica Risposta", type="primary"):
           st.session_state.verificato_corrente = True
           st.rerun()
       else:
-        is_correct = verifica_risposta_singola(risposta_utente, q["risposta_corretta"], tipo)
-        
+        is_correct = verifica_risposta_singola(
+            risposta_utente, q["risposta_corretta"], tipo
+        )
+
         if is_correct:
           st.success("🎉 **Risposta Corretta!**")
           if f"punteggiato_{idx}" not in st.session_state:
@@ -219,11 +274,14 @@ def main():
     else:
       st.header("Sessione di allenamento completata! 🎉")
       punteggio = st.session_state.punteggio_allenamento
-      st.subheader(f"Hai totalizzato {punteggio} su {totale} ({round((punteggio/totale)*100, 1)}%)")
+      percentuale = round((punteggio / totale) * 100, 1) if totale > 0 else 0
+      st.subheader(
+          f"Hai totalizzato {punteggio} su {totale} ({percentuale}%)"
+      )
 
       if st.button("Nuova sessione di allenamento casuale"):
         for k in list(st.session_state.keys()):
-          if k not in ["ultima_modalita", "num_pesca_prec"]:
+          if k != "stato_prec":
             del st.session_state[k]
         st.rerun()
 
