@@ -24,6 +24,14 @@ def carica_domande(percorso_file):
     return []
 
 
+def estrai_capitolo_da_nota(nota):
+  if not nota:
+    return "Non specificato"
+  if "," in nota:
+    return nota.split(",", 1)[0].strip()
+  return nota.strip()
+
+
 def pulisci_stringa(s):
   if isinstance(s, str):
     return s.replace(" ", "").strip()
@@ -64,6 +72,36 @@ def main():
   if not tutte_le_domande:
     return
 
+  capitolo_scelto = "Tutte le schede"
+  domande_filtrate = tutte_le_domande
+
+  if esonero_scelto == "2° Esonero":
+    st.sidebar.divider()
+    st.sidebar.subheader("📖 Filtro Scheda / Capitolo")
+    capitoli_disponibili = sorted(
+        list(
+            set(
+                estrai_capitolo_da_nota(q.get("nota"))
+                for q in tutte_le_domande
+            )
+        )
+    )
+    opzioni_capitolo = ["Tutte le schede"] + capitoli_disponibili
+    capitolo_scelto = st.sidebar.selectbox(
+        "Seleziona la scheda:", opzioni_capitolo
+    )
+
+    if capitolo_scelto != "Tutte le schede":
+      domande_filtrate = [
+          q
+          for q in tutte_le_domande
+          if estrai_capitolo_da_nota(q.get("nota")) == capitolo_scelto
+      ]
+
+  if not domande_filtrate:
+    st.warning("Nessuna domanda trovata per la selezione corrente.")
+    return
+
   modalita = st.sidebar.radio(
       "Scegli la modalità:",
       (
@@ -72,8 +110,8 @@ def main():
       ),
   )
 
-  max_q = len(tutte_le_domande)
-  min_q = min(5, max_q)
+  max_q = len(domande_filtrate)
+  min_q = min(1, max_q)
   num_pesca = st.sidebar.slider(
       "Numero di domande da estrarre:",
       min_value=min_q,
@@ -81,8 +119,13 @@ def main():
       value=min(20, max_q),
   )
 
-  # Reset dello stato quando cambia test, modalità o numero di domande
-  stato_corrente = (file_domande_scelto, modalita, num_pesca)
+  # Reset dello stato quando cambia test, scheda, modalità o numero di domande
+  stato_corrente = (
+      file_domande_scelto,
+      capitolo_scelto,
+      modalita,
+      num_pesca,
+  )
   if (
       "stato_prec" not in st.session_state
       or st.session_state.stato_prec != stato_corrente
@@ -94,7 +137,7 @@ def main():
     st.rerun()
 
   if "domande_test" not in st.session_state:
-    st.session_state.domande_test = random.sample(tutte_le_domande, num_pesca)
+    st.session_state.domande_test = random.sample(domande_filtrate, num_pesca)
 
   domande = st.session_state.domande_test
 
@@ -105,8 +148,9 @@ def main():
     if not st.session_state.get("risposte_inviate", False):
       with st.form("form_quiz"):
         st.info(
-            f"📝 **{esonero_scelto} — Modalità Esame attiva**: Stai affrontando"
-            f" un set di {len(domande)} domande. Rispondi a tutto e invia."
+            f"📝 **{esonero_scelto} ({capitolo_scelto}) — Modalità Esame"
+            f" attiva**: Stai affrontando un set di {len(domande)} domande."
+            " Rispondi a tutto e invia."
         )
 
         for i, q in enumerate(domande):
