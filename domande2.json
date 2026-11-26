@@ -262,5 +262,25 @@
     "opzioni":["Vero","Falso"],
     "risposta_corretta":"Vero",
     "spiegazione": "$\\lanlge T_{|x-3|}'', \\varphi \\rangle = - \\langle T_{f'}, \\varphi' \\rangle = 2\\varphi(3) = \\langle 2\\delta_3, \\varphi \\rangle$"
+  },
+  {
+    "id": 25,
+    "nota": "Esercitazione casa 3",
+    "argomento": "Distribuzioni",
+    "tipo":"aperta",
+    "domanda": "Sia $f(x,y) = y^2\\chi_E,$ dove $E = {(x,y)\\in \\mathbb{R}^2: x \\geq 0}$. Sia $B$ la palla unitaria in $\\mathbb{R}^2$ e siano $\\rho_{\\varepsilon} i mollificatori standard$. Calcolare $6 \\lim_{\\varepsilon \\to 0} \\langle \\frac{\\partial f}{\\partial x}, \\rho_{\\varepsilon} * \\chi_B \\rangle$",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"4",
+    "spiegazione": "Osserva che la derivata distribuzionale di $f$ è concentrata sulla retta $x = 0$ e che $\\rho_{\\varepsilon}*\\chi_B$. Quindi $6\\lim_{\\varepsilon \\to 0} \\langle \\partial_x f, \\rho_{\\varepsilon} * \\chi_B \\rangle = 6\\int_{\\mathbb{R}} y^2 \\chi_B(0,y)dy = 4$"
+  },
+  {
+    "id": 26,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "$f \\in C(\\mathbb{R}) \\implies f_n(x) = f(\\frac{x}{n})$ converge alla costante $f(0)$ nel senso delle distribuzioni",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione": "Applicare il teorema della convergenza dominata e pedalare"
   }
 ]
