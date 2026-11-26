@@ -2,6 +2,7 @@
     {
         "id": 1,
         "nota": "Esercitazione EA3",
+        "argomento": "Distribuzioni",
         "tipo": "multipla",
         "domanda": "Sia $\\rho \\in C_c^{\\infty}(\\mathbb{R}^2)$ una funzione il cui integrale su tutto $\\mathbb{R}^2$ è $1$, e siano $\\rho_n(x) = n^2 \\rho(nx), \\forall x \\in \\mathbb{R}^2$",
         "opzioni": [
@@ -21,6 +22,7 @@
         "id": 2,
         "nota": "Esercitazione EA3",
         "tipo": "multipla",
+        "argomento":"Distribuzioni",
         "domanda": "Stabilire quali tra queste sono distribuzioni su $\\mathbb{R}$",
         "opzioni": [
             "$T(\\phi) = \\int_0^{+\\infty} \\phi(t)dt$",
@@ -36,6 +38,7 @@
     {
         "id": 3,
         "nota": "Esercitazione EA3",
+        "argomento":"Distribuzioni",
         "tipo": "multipla",
         "domanda": "Sia ${u_n} \\subset L^1(\\mathbb{R})$ tale che per ogni aperto $A$ ha distanza positiva dall'origine",
         "opzioni": [
@@ -52,6 +55,7 @@
     {
         "id": 4,
         "nota": "Esercitazione EA3",
+        "argomento":"Distribuzioni",
         "tipo": "aperta",
         "domanda": "Siano $T_n$ distribuzioni in $D'(\\mathbb{R}): \\langle T_n, \\phi \\rangle = 3 \\phi(2) + \\phi(2n)$ e sia $T$ il limite di $T_n$ in $D'$. Calcolare $\\max{\\langle T, \\phi \\rangle: \\phi \\in D(\\mathbb{R}), ||\\phi|| \\leq 1}$",
         "opzioni":[],
@@ -62,6 +66,7 @@
     {
         "id": 5,
         "nota":"Esercitazione EA3",
+        "argomento":"Distribuzioni",
         "tipo":"aperta",
         "domanda": "Sia $u$ la funzione caratteristica di $]-1,5[$ e sia $g$ una funzione test tale che $g(x) = -x^2, \\forall x \\in ]-10,10[$. Calcolare $\\langle T_u',g \\rangle$",
         "opzioni":[],
@@ -72,6 +77,7 @@
         "id": 6,
         "nota":"Esercitazione EA3",
         "tipo":"vero_falso",
+        "argomento":"Distribuzioni",
         "domanda": "$T_{|x-3|}'' = 2\\delta_3$",
         "opzioni":["Vero","Falso"],
         "risposta_corretta": "Vero",
@@ -80,6 +86,7 @@
     {
         "id":7,
         "nota":"Esercitazione EA3",
+        "argomento":"Distribuzioni",
         "tipo":"vero_falso",
         "domanda":"Sia $f: \\mathbb{R} \\longrightarrow \\mathbb{R}, f(x) = z$ se $z \\leq x \\leq z + 1 \\forall x \\in \\mathbb{R}, z \\in \\mathbb{Z}$. Allora $\\langle T_f', \\varphi \\rangle \\geq 0$ per ogni funzione test $\\varphi \\geq 0$",
         "opzioni":["Vero","Falso"],
@@ -90,6 +97,7 @@
     "id": 8,
     "nota": "Scheda 5, ex. 22 (1)",
     "tipo": "vero_falso",
+    "argomento":"Distribuzioni",
     "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $x_n \\to 0$ in $\\mathbb{R}^N$, allora $\\varphi_n(\\cdot) := \\varphi(\\cdot - x_n) \\longrightarrow \\varphi(\\cdot)$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
@@ -98,6 +106,7 @@
   {
     "id": 9,
     "nota": "Scheda 5, ex. 22 (2)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $|x_n| \\to +\\infty$, allora $\\varphi_n(\\cdot) := \\varphi(\\cdot - x_n) \\longrightarrow 0$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
     "opzioni": ["Vero", "Falso"],
@@ -107,6 +116,7 @@
   {
     "id": 10,
     "nota": "Scheda 5, ex. 22 (3)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Se $c_n \\to c$ in $\\mathbb{R}$, allora $\\varphi_n := c_n\\varphi \\longrightarrow c\\varphi$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
     "opzioni": ["Vero", "Falso"],
@@ -116,6 +126,7 @@
   {
     "id": 11,
     "nota": "Scheda 5, ex. 22 (4)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $\\varphi \\in \\mathcal{D}(\\mathbb{R}^N)$. Allora $\\varphi_n(\\cdot) := \\frac{\\varphi(n\\cdot)}{n} \\longrightarrow 0$ in $\\mathcal{D}(\\mathbb{R}^N)$?",
     "opzioni": ["Vero", "Falso"],
@@ -125,6 +136,7 @@
 {
     "id": 12,
     "nota": "Scheda 5, ex. 23 (1)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n \\subset L^3(\\mathbb{R}^2)$, $f \\in L^3(\\mathbb{R}^2)$. Se $f_n \\to f$ in $L^3(\\mathbb{R}^2)$ (forte), allora $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\mathbb{R}^2)$?",
     "opzioni": ["Vero", "Falso"],
@@ -134,6 +146,7 @@
   {
     "id": 13,
     "nota": "Scheda 5, ex. 23 (2)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n \\subset L^3(\\mathbb{R}^2)$, $f \\in L^3(\\mathbb{R}^2)$. Se $f_n \\rightharpoonup f$ in $L^3(\\mathbb{R}^2)$ (debole), allora $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\mathbb{R}^2)$?",
     "opzioni": ["Vero", "Falso"],
@@ -143,6 +156,7 @@
   {
     "id": 14,
     "nota": "Scheda 5, ex. 23 (3)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n \\subset L^3(\\Omega)$, $f \\in L^3(\\Omega)$. Se $T_{f_n} \\to T_f$ in $\\mathcal{D}'(\\Omega)$, allora $f_n \\to f$ in $L^3(\\Omega)$?",
     "opzioni": ["Vero", "Falso"],
@@ -152,6 +166,7 @@
   {
     "id": 15,
     "nota": "Scheda 5, ex. 23 (4)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Siano $f_n \\subset L^3(\\Omega)$, $f \\in L^3(\\Omega)$. Se $||f_n||_{\\infty} \\longrightarrow + \\infty \\implies T_{f_n}$ non converge in $\\mathcal{D}'(\\mathbb{R}^2)$",
     "opzioni": ["Vero", "Falso"],
@@ -161,6 +176,7 @@
   {
     "id": 16,
     "nota": "Scheda 5, ex. 24 (1)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $f(x): \\mathbb{R} \\to \\mathbb{R}, f(x) = 4|x-5| \\implies T'_f = 4\\delta_5$ ",
     "opzioni": ["Vero", "Falso"],
@@ -170,6 +186,7 @@
   {
     "id": 17,
     "nota": "Scheda 5, ex. 24 (2)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $f(x): \\mathbb{R} \\to \\mathbb{R}, f(x) = 4|x-5| \\implies T''_f = 8\\delta_5$ ",
     "opzioni": ["Vero", "Falso"],
@@ -179,6 +196,7 @@
   {
     "id": 18,
     "nota": "Scheda 5, ex. 24 (3)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $f(x): \\mathbb{R} \\to \\mathbb{R}, f(x) = 4|x-5| \\implies T''_f = 5\\delta_4$ ",
     "opzioni": ["Vero", "Falso"],
@@ -188,6 +206,7 @@
   {
     "id": 19,
     "nota": "Scheda 5, ex. 24 (4)",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia $f(x): \\mathbb{R} \\to \\mathbb{R}, f(x) = 4|x-5| \\implies T'''_f = T_0$ ",
     "opzioni": ["Vero", "Falso"],
@@ -197,10 +216,51 @@
   {
     "id": 20,
     "nota": "Scheda 5, ex. 25",
+    "argomento":"Distribuzioni",
     "tipo": "vero_falso",
     "domanda": "Sia ${f_n}$ una successione debolmente convergente a $f$ in $L^2(\\mathbb{R}^n)$, è vero che: $f_n \\longrightarrow f$ in $L^2 \\iff ||f_n||_{L^2} \\longrightarrow ||f||_{L^2}$?",
     "opzioni": ["Vero", "Falso"],
     "risposta_corretta": "Vero",
     "spiegazione": "Per dimostrare $\\implies$ sfruttare la disuguaglianza triangolare inversa; per dimostrare $\\impliedby$ sfruttare l'ipotesi di convergenza debole e calolcare $||f_n - f||_{L^2}$" 
+  },
+  {
+    "id": 21,
+    "nota": "Esercitazione casa 3",
+    "argomento": "Fourier",
+    "tipo":"vero_falso",
+    "domanda": "$\\forall u \\in L^1(\\mathbb{R}), \\exists \\min_{[-1,1]}|\\hat{u}(\\xi)|$?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione": "La trasformata di Fourier è continua, $[-1,+1]$ è compatto: applico Weierstrass"
+  },
+  {
+    "id": 22,
+    "nota": "Esercitazione casa 3",
+    "argomento": "Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "Il funzionale che ad ogni funzione test $\\varphi: \\mathbb{R}^3 \\longrightarrow \\mathbb{R}$ associa $\\frac{1}{|B_1(0)|^2} \\int_{B_1(0)} - \\varphi(x)dx$ è una distribuzione?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione": "Devi verificare la linearità e la continuità"
+  },
+  {
+    "id": 23,
+    "nota": "Esercitazione casa 3",
+    "argomento": "Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "Sia $f$ una funzione continua a supporto compatto su $\\mathbb{R}$ tale che $f(0) = 3$. Allora $f_n(x) = f(nx) \\longrightarrow 3\\delta_0$ nel senso delle distribuzioni?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Falso",
+    "spiegazione": "La funzione converge a zero nel senso delle distribuzioni"
+  },
+  {
+    "id": 24,
+    "nota": "Esercitazione casa 3",
+    "argomento": "Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "$T_{|x-3|}'' = 2\\delta_3$?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione": "$\\lanlge T_{|x-3|}'', \\varphi \\rangle = - \\langle T_{f'}, \\varphi' \\rangle = 2\\varphi(3) = \\langle 2\\delta_3, \\varphi \\rangle$"
   }
 ]

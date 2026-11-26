@@ -24,12 +24,15 @@ def carica_domande(percorso_file):
     return []
 
 
-def estrai_capitolo_da_nota(nota):
-  if not nota:
-    return "Non specificato"
-  if "," in nota:
-    return nota.split(",", 1)[0].strip()
-  return nota.strip()
+def estrai_argomenti(q):
+  """Restituisce la lista degli argomenti di una domanda (supporta stringa o lista)."""
+  raw = q.get("argomento") if "argomento" in q else q.get("argomenti")
+  if isinstance(raw, list):
+    puliti = [str(a).strip() for a in raw if str(a).strip()]
+    return puliti if puliti else ["Da classificare"]
+  if isinstance(raw, str) and raw.strip():
+    return [raw.strip()]
+  return ["Da classificare"]
 
 
 def pulisci_stringa(s):
@@ -72,34 +75,29 @@ def main():
   if not tutte_le_domande:
     return
 
-  capitolo_scelto = "Tutte le schede"
+  argomento_scelto = "Tutti gli argomenti"
   domande_filtrate = tutte_le_domande
 
   if esonero_scelto == "2° Esonero":
     st.sidebar.divider()
-    st.sidebar.subheader("📖 Filtro Scheda / Capitolo")
-    capitoli_disponibili = sorted(
-        list(
-            set(
-                estrai_capitolo_da_nota(q.get("nota"))
-                for q in tutte_le_domande
-            )
-        )
-    )
-    opzioni_capitolo = ["Tutte le schede"] + capitoli_disponibili
-    capitolo_scelto = st.sidebar.selectbox(
-        "Seleziona la scheda:", opzioni_capitolo
+    st.sidebar.subheader("🏷️ Filtro Argomento")
+    tutte_etichette = set()
+    for q in tutte_le_domande:
+      tutte_etichette.update(estrai_argomenti(q))
+
+    argomenti_disponibili = sorted(list(tutte_etichette))
+    opzioni_argomento = ["Tutti gli argomenti"] + argomenti_disponibili
+    argomento_scelto = st.sidebar.selectbox(
+        "Seleziona l'argomento:", opzioni_argomento
     )
 
-    if capitolo_scelto != "Tutte le schede":
+    if argomento_scelto != "Tutti gli argomenti":
       domande_filtrate = [
-          q
-          for q in tutte_le_domande
-          if estrai_capitolo_da_nota(q.get("nota")) == capitolo_scelto
+          q for q in tutte_le_domande if argomento_scelto in estrai_argomenti(q)
       ]
 
   if not domande_filtrate:
-    st.warning("Nessuna domanda trovata per la selezione corrente.")
+    st.warning("Nessuna domanda trovata per l'argomento selezionato.")
     return
 
   modalita = st.sidebar.radio(
@@ -119,10 +117,10 @@ def main():
       value=min(20, max_q),
   )
 
-  # Reset dello stato quando cambia test, scheda, modalità o numero di domande
+  # Reset dello stato quando cambia test, argomento, modalità o numero di domande
   stato_corrente = (
       file_domande_scelto,
-      capitolo_scelto,
+      argomento_scelto,
       modalita,
       num_pesca,
   )
@@ -148,7 +146,7 @@ def main():
     if not st.session_state.get("risposte_inviate", False):
       with st.form("form_quiz"):
         st.info(
-            f"📝 **{esonero_scelto} ({capitolo_scelto}) — Modalità Esame"
+            f"📝 **{esonero_scelto} ({argomento_scelto}) — Modalità Esame"
             f" attiva**: Stai affrontando un set di {len(domande)} domande."
             " Rispondi a tutto e invia."
         )
