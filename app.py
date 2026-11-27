@@ -1,8 +1,10 @@
+from datetime import datetime
 import json
 import random
+import gspread
+from google.oauth2.service_account import Credentials
 import streamlit as st
 
-# Configurazione della pagina
 st.set_page_config(
     page_title="Simulazione Esonero Analisi Superiore",
     page_icon="📐",
@@ -13,6 +15,81 @@ FILE_ESONERI = {
     "1° Esonero": "domande.json",
     "2° Esonero": "domande2.json",
 }
+
+COLONNE_FOGLIO = [
+    "timestamp",
+    "giocatore",
+    "esonero",
+    "argomento",
+    "punteggio",
+    "totale",
+    "errori_json",
+]
+
+
+@st.cache_resource
+def get_worksheet():
+  if "gcp_service_account" not in st.secrets or "sheets" not in st.secrets:
+    return None
+  scopes = [
+      "https://www.googleapis.com/auth/spreadsheets",
+      "https://www.googleapis.com/auth/drive",
+  ]
+  creds = Credentials.from_service_account_info(
+      st.secrets["gcp_service_account"], scopes=scopes
+  )
+  client = gspread.authorize(creds)
+  sh = client.open_by_key(st.secrets["sheets"]["spreadsheet_id"])
+  ws_name = st.secrets["sheets"].get("worksheet_name", "Foglio1")
+  ws = sh.worksheet(ws_name)
+  if not ws.row_values(1):
+    ws.append_row(COLONNE_FOGLIO)
+  return ws
+
+
+def salva_tentativo_sheets(
+    giocatore, esonero, argomento, punteggio, totale, domande_errori
+):
+  ws = get_worksheet()
+  if ws is None:
+    return False
+  try:
+    errori_payload = [
+        {
+            "id": q.get("id", q.get("nota", f"domanda_{idx}")),
+            "nota": q.get("nota", ""),
+            "argomenti": estrai_argomenti(q),
+            "domanda": q.get("domanda", "")[:120],
+        }
+        for idx, q in enumerate(domande_errori)
+    ]
+    riga = [
+        datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        giocatore,
+        esonero,
+        argomento,
+        int(punteggio),
+        int(totale),
+        json.dumps(errori_payload, ensure_ascii=False),
+    ]
+    ws.append_row(riga)
+    carica_statistiche.clear()
+    return True
+  except Exception as e:
+    st.warning(f"Impossibile salvare su Google Sheets al momento: {e}")
+    return False
+
+
+@st.cache_data(ttl=30)
+def carica_statistiche():
+  ws = get_worksheet()
+  if ws is None:
+    return []
+  try:
+    return ws.get_all_records()
+  except Exception as e:
+    st.warning(f"Errore nel leggere le statistiche da Google Sheets: {e}")
+    return []
 
 
 def carica_domande(percorso_file):
@@ -25,7 +102,6 @@ def carica_domande(percorso_file):
 
 
 def estrai_argomenti(q):
-  """Restituisce la lista degli argomenti di una domanda (supporta stringa o lista)."""
   raw = q.get("argomento") if "argomento" in q else q.get("argomenti")
   if isinstance(raw, list):
     puliti = [str(a).strip() for a in raw if str(a).strip()]
@@ -42,7 +118,6 @@ def pulisci_stringa(s):
 
 
 def verifica_risposta_singola(risposta_data, risposta_corretta, tipo):
-  """Funzione di supporto per verificare una singola risposta."""
   if tipo == "multipla":
     user_set = (
         {pulisci_stringa(x) for x in risposta_data} if risposta_data else set()
@@ -58,16 +133,157 @@ def verifica_risposta_singola(risposta_data, risposta_corretta, tipo):
     return user_ans_str.lower() == corr_ans_str.lower()
 
 
+def mostra_statistiche():
+  st.header("📊 Statistiche e Progressi")
+
+  if get_worksheet() is None:
+    st.info(
+        "Collega **Google Sheets** tramite `st.secrets` (`[gcp_service_account]`"
+        " e `[sheets]`) per attivare il salvataggio automatico e il"
+        " confronto tra giocatori."
+    )
+    return
+
+  records = carica_statistiche()
+  if not records:
+    st.info(
+        "Nessun tentativo registrato ancora. Completa un esame o una"
+        " sessione di allenamento per iniziare!"
+    )
+    return
+
+  giocatori = sorted(
+      list({
+          str(r.get("giocatore", "")).strip()
+          for r in records
+          if r.get("giocatore")
+      })
+  )
+  col1, col2 = st.columns(2)
+  with col1:
+    filtro_giocatore = st.selectbox(
+        "Filtra per giocatore:", ["Tutti"] + giocatori
+    )
+  with col2:
+    filtro_esonero = st.selectbox(
+        "Filtra per test:", ["Tutti", "1° Esonero", "2° Esonero"]
+    )
+
+  filtrati = []
+  for r in records:
+    if (
+        filtro_giocatore != "Tutti"
+        and str(r.get("giocatore")) != filtro_giocatore
+    ):
+      continue
+    if filtro_esonero != "Tutti" and str(r.get("esonero")) != filtro_esonero:
+      continue
+    filtrati.append(r)
+
+  if not filtrati:
+    st.warning("Nessun dato per i filtri selezionati.")
+    return
+
+  tentativi = len(filtrati)
+  percentuali = []
+  conteggio_errori = {}
+
+  for r in filtrati:
+    p = r.get("punteggio", 0)
+    t = r.get("totale", 0)
+    if isinstance(t, (int, float)) and t > 0:
+      percentuali.append((p / t) * 100)
+    raw_err = r.get("errori_json", "[]")
+    try:
+      errori_list = (
+          json.loads(raw_err) if isinstance(raw_err, str) else (raw_err or [])
+      )
+    except Exception:
+      errori_list = []
+
+    for err in errori_list:
+      chiave = err.get("id") or err.get("domanda") or "Domanda sconosciuta"
+      if chiave not in conteggio_errori:
+        conteggio_errori[chiave] = {
+            "errori": 0,
+            "nota": err.get("nota", ""),
+            "argomenti": ", ".join(err.get("argomenti", [])),
+            "domanda": err.get("domanda", ""),
+        }
+      conteggio_errori[chiave]["errori"] += 1
+
+  media_pct = round(sum(percentuali) / len(percentuali), 1) if percentuali else 0
+  miglior_pct = round(max(percentuali), 1) if percentuali else 0
+
+  m1, m2, m3 = st.columns(3)
+  m1.metric("Tentativi", tentativi)
+  m2.metric("Media punteggio", f"{media_pct}%")
+  m3.metric("Miglior risultato", f"{miglior_pct}%")
+
+  st.divider()
+  st.subheader("🎯 Domande sbagliate più spesso")
+
+  if not conteggio_errori:
+    st.success("Nessun errore registrato per questa selezione!")
+  else:
+    classifica = sorted(
+        conteggio_errori.values(), key=lambda x: x["errori"], reverse=True
+    )[:10]
+    for item in classifica:
+      etichetta = f"**{item['errori']} errori**"
+      if item["nota"]:
+        etichetta += f" — *{item['nota']}*"
+      if item["argomenti"]:
+        etichetta += f" · `{item['argomenti']}`"
+      st.markdown(f"* {etichetta}")
+      if item["domanda"]:
+        st.caption(item["domanda"])
+
+  st.divider()
+  st.subheader("🕒 Ultimi tentativi")
+  tabella_storico = [
+      {
+          "Data/Ora": r.get("timestamp", ""),
+          "Giocatore": r.get("giocatore", ""),
+          "Test": r.get("esonero", ""),
+          "Argomento": r.get("argomento", ""),
+          "Punteggio": f"{r.get('punteggio', 0)}/{r.get('totale', 0)}",
+      }
+      for r in reversed(filtrati[-20:])
+  ]
+  st.dataframe(tabella_storico, use_container_width=True, hide_index=True)
+
+
 def main():
   st.title("Simulazione Esonero Analisi Superiore")
 
-  # --- SIDEBAR PER IMPOSTAZIONI E MODALITÀ ---
+  st.sidebar.header("🧭 Navigazione e Profilo")
+  sezione = st.sidebar.radio(
+      "Vai a:",
+      ("📝 Simulazione / Allenamento", "📊 Statistiche"),
+  )
+
+  giocatore_scelto = (
+      st.sidebar.text_input(
+          "Il tuo nome (per le statistiche):",
+          value=st.session_state.get("giocatore_nome", "Giocatore 1"),
+          key="input_giocatore",
+      ).strip()
+      or "Giocatore 1"
+  )
+  st.session_state.giocatore_nome = giocatore_scelto
+
+  if sezione == "📊 Statistiche":
+    mostra_statistiche()
+    return
+
+  st.sidebar.divider()
   st.sidebar.header("⚙️ Impostazioni Test")
 
   esonero_scelto = st.sidebar.selectbox(
       "Seleziona il test:",
       list(FILE_ESONERI.keys()),
-      index=1,  # Default sul 2° Esonero; metti 0 per partire dal 1°
+      index=1,
   )
   file_domande_scelto = FILE_ESONERI[esonero_scelto]
 
@@ -109,15 +325,19 @@ def main():
   )
 
   max_q = len(domande_filtrate)
-  min_q = min(1, max_q)
-  num_pesca = st.sidebar.slider(
-      "Numero di domande da estrarre:",
-      min_value=min_q,
-      max_value=min(50, max_q),
-      value=min(20, max_q),
-  )
+  if max_q <= 1:
+    num_pesca = max_q
+    st.sidebar.info(f"Domande disponibili: **{max_q}**")
+  else:
+    max_slider = min(50, max_q)
+    default_val = min(20, max_slider)
+    num_pesca = st.sidebar.slider(
+        "Numero di domande da estrarre:",
+        min_value=1,
+        max_value=max_slider,
+        value=default_val,
+    )
 
-  # Reset dello stato quando cambia test, argomento, modalità o numero di domande
   stato_corrente = (
       file_domande_scelto,
       argomento_scelto,
@@ -130,7 +350,7 @@ def main():
   ):
     st.session_state.stato_prec = stato_corrente
     for k in list(st.session_state.keys()):
-      if k != "stato_prec":
+      if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
         del st.session_state[k]
     st.rerun()
 
@@ -140,15 +360,14 @@ def main():
   domande = st.session_state.domande_test
 
   # ==========================================
-  # MODALITÀ 1: ESAME (Tutte le domande in un form)
+  # MODALITÀ 1: ESAME
   # ==========================================
   if "Modalità Esame" in modalita:
     if not st.session_state.get("risposte_inviate", False):
       with st.form("form_quiz"):
         st.info(
-            f"📝 **{esonero_scelto} ({argomento_scelto}) — Modalità Esame"
-            f" attiva**: Stai affrontando un set di {len(domande)} domande."
-            " Rispondi a tutto e invia."
+            f"📝 **{esonero_scelto} ({argomento_scelto}) — Giocatore:"
+            f" {giocatore_scelto}** · {len(domande)} domande."
         )
 
         for i, q in enumerate(domande):
@@ -185,12 +404,14 @@ def main():
               ]
               st.session_state[f"q_{i}"] = selected
           st.session_state.risposte_inviate = True
+          st.session_state.salvatro_esame = False
           st.rerun()
 
     else:
       st.header(f"Risultati e Spiegazioni — {esonero_scelto}")
       punteggio = 0
       totale = len(domande)
+      domande_errori = []
 
       for i, q in enumerate(domande):
         risposta_data = st.session_state.get(f"q_{i}")
@@ -219,6 +440,7 @@ def main():
           st.success(f"La tua risposta: **{user_str}** — **Corretta!** ✅")
           punteggio += 1
         else:
+          domande_errori.append(q)
           st.error(
               f"La tua risposta: **{user_str}** — La risposta corretta era:"
               f" **{corr_str}** ❌"
@@ -228,23 +450,36 @@ def main():
           st.markdown(q["spiegazione"])
         st.divider()
 
+      if not st.session_state.get("salvatro_esame", False):
+        salva_tentativo_sheets(
+            giocatore_scelto,
+            esonero_scelto,
+            argomento_scelto,
+            punteggio,
+            totale,
+            domande_errori,
+        )
+        st.session_state.salvatro_esame = True
+
       percentuale = round((punteggio / totale) * 100, 1) if totale > 0 else 0
       st.subheader(f"Punteggio finale: {punteggio} su {totale} ({percentuale}%)")
 
       if st.button("Ricomincia il test"):
         for k in list(st.session_state.keys()):
-          if k != "stato_prec":
+          if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
             del st.session_state[k]
         st.rerun()
 
   # ==========================================
-  # MODALITÀ 2: ALLENAMENTO (Casuale, una alla volta con feedback)
+  # MODALITÀ 2: ALLENAMENTO
   # ==========================================
   else:
     if "indice_allenamento" not in st.session_state:
       st.session_state.indice_allenamento = 0
       st.session_state.punteggio_allenamento = 0
       st.session_state.verificato_corrente = False
+      st.session_state.errori_allenamento = []
+      st.session_state.salvatro_allenamento = False
 
     idx = st.session_state.indice_allenamento
     totale = len(domande)
@@ -255,7 +490,7 @@ def main():
 
       nota_testo = f" — *{q['nota']}*" if "nota" in q else ""
       st.caption(
-          f"{esonero_scelto} · Allenamento (Casuale) - Domanda {idx + 1} di"
+          f"{giocatore_scelto} · {esonero_scelto} · Domanda {idx + 1} di"
           f" {totale}{nota_testo}"
       )
 
@@ -294,11 +529,14 @@ def main():
 
         if is_correct:
           st.success("🎉 **Risposta Corretta!**")
-          if f"punteggiato_{idx}" not in st.session_state:
+          if f"registrato_{idx}" not in st.session_state:
             st.session_state.punteggio_allenamento += 1
-            st.session_state[f"punteggiato_{idx}"] = True
+            st.session_state[f"registrato_{idx}"] = True
         else:
           st.error("❌ **Risposta Errata.**")
+          if f"registrato_{idx}" not in st.session_state:
+            st.session_state.errori_allenamento.append(q)
+            st.session_state[f"registrato_{idx}"] = True
           if isinstance(q["risposta_corretta"], list):
             corr_str = ", ".join(q["risposta_corretta"])
           else:
@@ -314,8 +552,19 @@ def main():
           st.rerun()
 
     else:
-      st.header("Sessione di allenamento completata! 🎉")
       punteggio = st.session_state.punteggio_allenamento
+      if not st.session_state.get("salvatro_allenamento", False):
+        salva_tentativo_sheets(
+            giocatore_scelto,
+            esonero_scelto,
+            argomento_scelto,
+            punteggio,
+            totale,
+            st.session_state.errori_allenamento,
+        )
+        st.session_state.salvatro_allenamento = True
+
+      st.header("Sessione di allenamento completata! 🎉")
       percentuale = round((punteggio / totale) * 100, 1) if totale > 0 else 0
       st.subheader(
           f"Hai totalizzato {punteggio} su {totale} ({percentuale}%)"
@@ -323,7 +572,7 @@ def main():
 
       if st.button("Nuova sessione di allenamento casuale"):
         for k in list(st.session_state.keys()):
-          if k != "stato_prec":
+          if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
             del st.session_state[k]
         st.rerun()
 
