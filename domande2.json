@@ -369,5 +369,91 @@
     "opzioni":[],
     "risposta_corretta":"6",
     "spiegazione": "Osserva che per la positività di $\\varphi$ l'integrale di $\\varphi$ in $[-4,4]$ coincide con la sua norma $L^1$. Inoltre, osservo che per la parità di $\\varphi, \\langle T_v', \\varphi \\rangle = -\\int_{-2}^{+2} \\varphi'(x)dx = \\varphi(-2) - \\varphi(2) = 0$"
+  },
+  {
+    "id":35,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"multipla",
+    "domanda": "Quali tra queste sono distribuzioni temperate?",
+    "opzioni":[
+      "$3x + 5x^2 + 6x^5$",
+      "$3e^{x^2} + 2$",
+      "$e^{\\sinx}$",
+      "$\\sum_{n = 1}^{+\\infty} \\frac{\\partial^n}{x^n}\\delta_0$"
+    ],
+    "risposta_corretta": [
+      "$3x + 5x^2 + 6x^5$",
+      "$e^{\\sinx}$"
+    ],
+    "spiegazione": "$e^{\\sinx}$ è una funzione limitata su $\\mathbb{R}$ e ogni funzione limitata su $\\marhbb{R}$ è a crescita al più polinomiale"
+  },
+  {
+    "id":36,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"multipla",
+    "domanda": "Siano $u \\in L^1(\\mathbb{R}),v \\in L^2(\\mathbb{R}^2)$ e sia $F$ l'operatore di trasformata di Fourier",
+    "opzioni": [
+      "$F(u*v) \\in L^2(\\mathbb{R})$",
+      "$F(u)$ è continua",
+      "$F(v)$ è limitata",
+      "$F(u+v)$ è continua"
+    ],
+    "risposta_corretta": [
+      "$F(u*v) \\in L^2(\\mathbb{R})$",
+      "$F(u)$ è continua"
+    ],
+    "spiegazione": "$u \\in L^1, v \\in L^2 \\implies u*v \\in L^2$. Per Plancherel, $F$ è un isomorfismo di $L^2$. Inoltre, $F$ è continua"
+  },
+  {
+    "id":37,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"aperta",
+    "domanda": "Calcolare la trasformata di Fourier di $d\\delta_0$ in $\\xi = 3$",
+    "opzioni": [],
+    "risposta_corretta": "4",
+    "spiegazione":
+  },
+  {
+    "id":38,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"vero_falso",
+    "domanda": "La trasformata di Fourier è un'isometria da $L^1(\\mathbb{R}^n)$ in sè?",
+    "opzioni": ["Vero","Falso"],
+    "risposta_corretta": "Falso",
+    "spiegazione":"Da Plancherel è un'isometria da $L^2$ in se"
+  },
+  {
+    "id":39,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"vero_falso",
+    "domanda": "Sia $\\phi$ una funzione test su $\\mathbb{R}$. La sua trasformata di Fourier appartiene alla classe di Schwartz?",
+    "opzioni": ["Vero","Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione":
+  },
+  {
+    "id":40,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"vero_falso",
+    "domanda": "$\\forall u \\in L^1(\\mathbb{R}): |\\xi|\\hat{u} \\in \\mathcal{S}'(\\mathbb{R})$?",
+    "opzioni": ["Vero","Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione":
+  },
+  {
+    "id":41,
+    "nota":"Esercitazione EA4",
+    "argomento":"Fourier",
+    "tipo":"vero_falso",
+    "domanda": "Sia $u: \\mathbb{R}^2 \\to \\mathbb{R}, u(x) = (1 + |x|)^{-5} \\implies \\hat{u} \\in L^2(\\mathbb{R}^2)\\capC^2{\\mathbb{R}^2}$?",
+    "opzioni": ["Vero","Falso"],
+    "risposta_corretta": "Vero",
+    "spiegazione":
   }
 ]
