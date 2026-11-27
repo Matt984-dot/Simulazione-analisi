@@ -414,7 +414,7 @@
     "domanda": "Calcolare la trasformata di Fourier di $d\\delta_0$ in $\\xi = 3$",
     "opzioni": [],
     "risposta_corretta": "4",
-    "spiegazione":
+    "spiegazione":""
   },
   {
     "id":38,
@@ -434,7 +434,7 @@
     "domanda": "Sia $\\phi$ una funzione test su $\\mathbb{R}$. La sua trasformata di Fourier appartiene alla classe di Schwartz?",
     "opzioni": ["Vero","Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione":
+    "spiegazione":""
   },
   {
     "id":40,
@@ -444,7 +444,7 @@
     "domanda": "$\\forall u \\in L^1(\\mathbb{R}): |\\xi|\\hat{u} \\in \\mathcal{S}'(\\mathbb{R})$?",
     "opzioni": ["Vero","Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione":
+    "spiegazione":""
   },
   {
     "id":41,
@@ -454,6 +454,6 @@
     "domanda": "Sia $u: \\mathbb{R}^2 \\to \\mathbb{R}, u(x) = (1 + |x|)^{-5} \\implies \\hat{u} \\in L^2(\\mathbb{R}^2)\\capC^2{\\mathbb{R}^2}$?",
     "opzioni": ["Vero","Falso"],
     "risposta_corretta": "Vero",
-    "spiegazione":
+    "spiegazione":""
   }
 ]
