@@ -27,6 +27,16 @@ COLONNE_FOGLIO = [
     "errori_json",
 ]
 
+NOMI_PREDEFINITI = ["Matteo (creatore)", "Matteo (beta tester)"]
+CHIAVI_PROFILO = ("giocatore_nome", "select_giocatore", "input_giocatore_nuovo")
+
+
+def resetta_stato_sessione(preserva_chiavi=()):
+  chiavi_da_tenere = set(CHIAVI_PROFILO) | set(preserva_chiavi)
+  for k in list(st.session_state.keys()):
+    if k not in chiavi_da_tenere:
+      del st.session_state[k]
+
 
 @st.cache_resource
 def get_worksheet():
@@ -132,6 +142,40 @@ def verifica_risposta_singola(risposta_data, risposta_corretta, tipo):
     user_ans_str = pulisci_stringa(str(risposta_data)) if risposta_data else ""
     corr_ans_str = pulisci_stringa(str(risposta_corretta))
     return user_ans_str.lower() == corr_ans_str.lower()
+
+
+def seleziona_giocatore_sidebar():
+  nome_salvato = st.session_state.get("giocatore_nome", NOMI_PREDEFINITI[0])
+  indice_iniziale = (
+      NOMI_PREDEFINITI.index(nome_salvato)
+      if nome_salvato in NOMI_PREDEFINITI[:-1]
+      else len(NOMI_PREDEFINITI) - 1
+  )
+
+  scelta_profilo = st.sidebar.selectbox(
+      "Seleziona il giocatore:",
+      NOMI_PREDEFINITI,
+      index=indice_iniziale,
+      key="select_giocatore",
+  )
+
+  if scelta_profilo == "Altro...":
+    valore_iniziale = (
+        "" if nome_salvato in NOMI_PREDEFINITI[:-1] else nome_salvato
+    )
+    giocatore_scelto = (
+        st.sidebar.text_input(
+            "Inserisci un nuovo nome:",
+            value=valore_iniziale,
+            key="input_giocatore_nuovo",
+        ).strip()
+        or "Giocatore 3"
+    )
+  else:
+    giocatore_scelto = scelta_profilo
+
+  st.session_state.giocatore_nome = giocatore_scelto
+  return giocatore_scelto
 
 
 def mostra_statistiche():
@@ -306,15 +350,7 @@ def main():
       ("📝 Simulazione / Allenamento", "📊 Statistiche"),
   )
 
-  giocatore_scelto = (
-      st.sidebar.text_input(
-          "Il tuo nome (per le statistiche):",
-          value=st.session_state.get("giocatore_nome", "Giocatore 1"),
-          key="input_giocatore",
-      ).strip()
-      or "Giocatore 1"
-  )
-  st.session_state.giocatore_nome = giocatore_scelto
+  giocatore_scelto = seleziona_giocatore_sidebar()
 
   if sezione == "📊 Statistiche":
     mostra_statistiche()
@@ -392,9 +428,7 @@ def main():
       or st.session_state.stato_prec != stato_corrente
   ):
     st.session_state.stato_prec = stato_corrente
-    for k in list(st.session_state.keys()):
-      if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
-        del st.session_state[k]
+    resetta_stato_sessione(preserva_chiavi=("stato_prec",))
     st.rerun()
 
   if "domande_test" not in st.session_state:
@@ -508,9 +542,7 @@ def main():
       st.subheader(f"Punteggio finale: {punteggio} su {totale} ({percentuale}%)")
 
       if st.button("Ricomincia il test"):
-        for k in list(st.session_state.keys()):
-          if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
-            del st.session_state[k]
+        resetta_stato_sessione(preserva_chiavi=("stato_prec",))
         st.rerun()
 
   # ==========================================
@@ -614,9 +646,7 @@ def main():
       )
 
       if st.button("Nuova sessione di allenamento casuale"):
-        for k in list(st.session_state.keys()):
-          if k not in ("stato_prec", "giocatore_nome", "input_giocatore"):
-            del st.session_state[k]
+        resetta_stato_sessione(preserva_chiavi=("stato_prec",))
         st.rerun()
 
 
