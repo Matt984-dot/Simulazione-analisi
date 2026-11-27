@@ -282,5 +282,82 @@
     "opzioni":["Vero","Falso"],
     "risposta_corretta":"Vero",
     "spiegazione": "Applicare il teorema della convergenza dominata e pedalare"
+  },
+  {
+    "id": 27,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"multipla",
+    "domanda": "Sia $f_n$ una successione di funzioni limitata in $L^p(\\mathbb{R}^n)$",
+    "opzioni":[
+      "$p = 5 \\implies \\exists {f_{n_k}}$ sottosuccessione convergente nel senso delle distribuzioni",
+      "$p = 1, f_n \\longrightarrow 0$ quasi ovunque $\\implies f_n \\rightharpoonup 0$ in $L^1(\\mathbb{R}^n)$",
+      "$1 < p < +\\infty \\implies \\exists$ una sottosuccessione convergente debolmente in $L^p(\\mathbb{R}^n)$"
+    ],
+    "risposta_corretta":[
+      "$p = 5 \\implies \\exists {f_{n_k}}$ sottosuccessione convergente nel senso delle distribuzioni",
+      "$1 < p < +\\infty \\implies \\exists$ una sottosuccessione convergente debolmente in $L^p(\\mathbb{R}^n)$"
+    ],
+    "spiegazione": "Da Riesz osservo che se $1 < p < +\\infty$ allora esiste una sottosuccesione cnvergente debolmente in $L^p$. In particolare, questo vale per $p = 5$ e osservo che la convergenza debole implica la convergenza nel senso delle distribuzioni"
+  },
+  {
+    "id": 28,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "Sia $\\varphi(x) = \\max{0,1 - |x|} \\implies \\exists {c_n} \\subset \\mathbb{R}: c_n \\varphi^n \\longrightarrow \\delta_0$ in $D'(\\mathbb{R})$?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione": "Intuizione geoemtrica: al crescere di $n$, $(1-|x|)^n$ si schiaccia sempre più strettamente attorno a $x = 0$. Moltiplicando per $c_n = \\frac{n+1}{2}$, l'altezza del picco in $0$ cresce in modo da mantenere l'area totale del sottografico sempre pari a $1$: questo è proprio il comportamento che definisce una succ. approssimante a $\\delta_0$"
+  },
+  {
+    "id": 29,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"aperta",
+    "domanda": "Siano $g$ una funzione test e $T$ una distribuzione tale che $\\langle T, g \\rangle = 2$ siano $g_n(x) = (2 + \\frac{1}{n})g(x + \\frac{1}{n})$. Calcolare $\\lim_{n \\to +\\infty} \\langle T, g_n \\rangle$",
+    "opzioni":[],
+    "risposta_corretta":"4",
+    "spiegazione": "$g_n \\longrightarrow 2g$ nel senso delle distribuzioni, $\\lim_{n \\to +\\infty} \\langle T, g_n \\rangle = \\langle T, 2g \\rangle = 2 \\lanlge T,g \\ranlge = 4$"
+  },
+  {
+    "id": 30,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "Per ogni $\\varphi_n \\longrightarrow \\varphi$ in $D(\\mathbb{R}) \\implies \\varphi_n' \\longrightarrow \\varphi'$ in $D(\\mathbb{R})$?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Vero",
+    "spiegazione":"La derivata è continua in $D(\\mathbb{R})$"
+  },
+  {
+    "id": 31,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"vero_falso",
+    "domanda": "Sia $u(x) = \\chi_[0,1](x)$, la sua derivata distribuzionale è $\\delta_0$?",
+    "opzioni":["Vero","Falso"],
+    "risposta_corretta":"Falso",
+    "spiegazione":"\\langle T_u', \\varphi \\rangle = - \\langle T_u, \\varphi' \\rangle = - \\int_0^1 \\varphi'(x)dx = \\varphi(0) - \\varphi(1) = \\langle \\delta_0 - \\delta_1, \\varphi \\rangle"
+  },
+  {
+    "id": 32,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"aperta",
+    "domanda": "Sia $\\rho$ un mollificatore standard simmetrico e sia $\\varphi = \\rho * \\chi_{]-3,+3[}$. Calcolare: $\\langle \\frac{\\partial^5}{\\partial x^5}T_{\\delta_0}, \\varphi \\rangle$",
+    "opzioni":[],
+    "risposta_corretta":"0",
+    "spiegazione":"$\\langle \\frac{\\partial^5}{\\partial x^5} T_{\\delta_0}, \\varphi \\rangle$ = (-1)^5 \\langle T_{\\delta_0}, \\varphi^{(5)} \\rangle = - \\varphi^{(5)}(0) = 0$"
+  },
+  {
+    "id": 33,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"aperta",
+    "domanda": "Sia $u: \\mathbb{R} \\to \\mathbb{R}$ la funzione parte intera, calcolare il massimo di $\\langle T_u', \\varphi \\rangle$ tra tutte le $\\varphi \\in C^{\\infty}_C(]2,7[): ||\\varphi||_{\\infty} \\leq 2$",
+    "opzioni":[],
+    "risposta_corretta":"8",
+    "spiegazione": "$u(x) = k \\space \\text{su} [k,k+1[: \\langle T_u', \\varphi \\rangle = - \\sum_k \\int_k^{k+1} \\varphi'(x)dx = \\sum_k \\varphi(k) = \\varphi(3) + \\varphi(4) + \\varphi(5) + \\varphi(6) \\leq 2+2+2+2$"
   }
 ]
