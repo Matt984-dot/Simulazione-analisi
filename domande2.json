@@ -359,5 +359,15 @@
     "opzioni":[],
     "risposta_corretta":"8",
     "spiegazione": "$u(x) = k \\space \\text{su} [k,k+1[: \\langle T_u', \\varphi \\rangle = - \\sum_k \\int_k^{k+1} \\varphi'(x)dx = \\sum_k \\varphi(k) = \\varphi(3) + \\varphi(4) + \\varphi(5) + \\varphi(6) \\leq 2+2+2+2$"
+  },
+  {
+    "id": 34,
+    "nota":"Esercitazione casa 3",
+    "argomento":"Distribuzioni",
+    "tipo":"aperta",
+    "domanda": "Siano $u = 3 \\chi_{]-10,+10[}, v = \\chi_{]-2,2[}$ e $\\varphi \\geq 0$ funzione test con supporto in $[-4,+4], \\varphi(x) = \\varphi(-x), ||\\varphi||_{L^1} = 2$. Calcolare $\\langle T_u, \\varphi \\rangle + 5\\langle T_v', \\varphi \\rangle$",
+    "opzioni":[],
+    "risposta_corretta":"6",
+    "spiegazione": "Osserva che per la positività di $\\varphi$ l'integrale di $\\varphi$ in $[-4,4]$ coincide con la sua norma $L^1$. Inoltre, osservo che per la parità di $\\varphi, \\langle T_v', \\varphi \\rangle = -\\int_{-2}^{+2} \\varphi'(x)dx = \\varphi(-2) - \\varphi(2) = 0$"
   }
 ]
