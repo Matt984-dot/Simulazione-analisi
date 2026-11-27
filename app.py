@@ -3,6 +3,7 @@ import json
 import random
 import gspread
 from google.oauth2.service_account import Credentials
+import pandas as pd
 import streamlit as st
 
 st.set_page_config(
@@ -219,6 +220,48 @@ def mostra_statistiche():
   m1.metric("Tentativi", tentativi)
   m2.metric("Media punteggio", f"{media_pct}%")
   m3.metric("Miglior risultato", f"{miglior_pct}%")
+
+  st.divider()
+  st.subheader("📈 Andamento punteggi e tentativi")
+
+  righe_grafico = []
+  for idx, r in enumerate(filtrati, start=1):
+    p = r.get("punteggio", 0)
+    t = r.get("totale", 0)
+    pct = (
+        round((p / t) * 100, 1)
+        if isinstance(t, (int, float)) and t > 0
+        else 0.0
+    )
+    ts_raw = str(r.get("timestamp", ""))
+    giorno = ts_raw[:10] if len(ts_raw) >= 10 else f"Tentativo {idx}"
+    righe_grafico.append({
+        "ordine": f"#{idx} ({ts_raw[5:16]})" if len(ts_raw) >= 16 else f"#{idx}",
+        "giorno": giorno,
+        "giocatore": str(r.get("giocatore", "")),
+        "percentuale": pct,
+        "tentativi": 1,
+    })
+
+  df_graf = pd.DataFrame(righe_grafico)
+
+  st.caption("Andamento % punteggio per tentativo")
+  st.line_chart(df_graf.set_index("ordine")["percentuale"])
+
+  if filtro_giocatore == "Tutti" and df_graf["giocatore"].nunique() > 1:
+    st.caption("Tentativi per giocatore e giorno")
+    pivot_gioc = df_graf.pivot_table(
+        index="giorno",
+        columns="giocatore",
+        values="tentativi",
+        aggfunc="sum",
+        fill_value=0,
+    )
+    st.bar_chart(pivot_gioc)
+  else:
+    st.caption("Numero di tentativi per giorno")
+    tentativi_giorno = df_graf.groupby("giorno", sort=False)["tentativi"].sum()
+    st.bar_chart(tentativi_giorno)
 
   st.divider()
   st.subheader("🎯 Domande sbagliate più spesso")
